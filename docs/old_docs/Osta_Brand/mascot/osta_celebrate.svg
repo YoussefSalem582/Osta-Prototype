@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 220">
+  <defs>
+    <linearGradient id="body" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#139492"/><stop offset="1" stop-color="#0A5A5A"/></linearGradient>
+  </defs>
+  <path d="M40 49 L43.08 56.92 L51 60 L43.08 63.08 L40 71 L36.92 63.08 L29 60 L36.92 56.92 Z" fill="#FFB02E"/><path d="M220 39 L223.64 48.36 L233 52 L223.64 55.64 L220 65 L216.36 55.64 L207 52 L216.36 48.36 Z" fill="#FF7A59"/><path d="M210 141 L212.52 147.48 L219 150 L212.52 152.52 L210 159 L207.48 152.52 L201 150 L207.48 147.48 Z" fill="#FFD24C"/><path d="M34 131 L36.52 137.48 L43 140 L36.52 142.52 L34 149 L31.48 142.52 L25 140 L31.48 137.48 Z" fill="#27C9A0"/>
+  <!-- ground shadow -->
+  <ellipse cx="130" cy="196" rx="86" ry="13" fill="#14262B" opacity="0.10"/>
+  <!-- wheels -->
+  <circle cx="78" cy="178" r="24" fill="#14262B"/><circle cx="78" cy="178" r="11" fill="#33484E"/>
+  <circle cx="182" cy="178" r="24" fill="#14262B"/><circle cx="182" cy="178" r="11" fill="#33484E"/>
+  <!-- lower body -->
+  <rect x="34" y="118" width="192" height="66" rx="30" fill="url(#body)"/>
+  <!-- cabin/roof -->
+  <path d="M70 124 C74 86 96 70 130 70 C164 70 186 86 190 124 Z" fill="url(#body)"/>
+  <!-- windshield = face panel -->
+  <path d="M88 120 C90 96 106 86 130 86 C154 86 170 96 172 120 Z" fill="#FFF7EE"/>
+  <rect x="78" y="116" width="104" height="12" rx="6" fill="#FFF7EE"/>
+  <!-- headlights -->
+  <rect x="40" y="150" width="20" height="13" rx="6" fill="#FFD24C"/>
+  <rect x="200" y="150" width="20" height="13" rx="6" fill="#FFD24C"/>
+  <!-- grille hint -->
+  <rect x="108" y="168" width="44" height="7" rx="3.5" fill="#14262B" opacity="0.18"/>
+  <circle cx="96" cy="124" r="7" fill="#FF7A59" opacity="0.55"/><circle cx="164" cy="124" r="7" fill="#FF7A59" opacity="0.55"/><path d="M101 109 q11 -13 22 0" fill="none" stroke="#14262B" stroke-width="4" stroke-linecap="round"/><path d="M137 109 q11 -13 22 0" fill="none" stroke="#14262B" stroke-width="4" stroke-linecap="round"/><path d="M112 120 q18 18 36 0 q-18 8 -36 0 Z" fill="#FFB02E"/><path d="M112 120 q18 16 36 0" fill="none" stroke="#FFB02E" stroke-width="5" stroke-linecap="round"/>
+</svg>

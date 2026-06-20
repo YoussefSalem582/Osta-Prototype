@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 286"><defs>
+ <linearGradient id="body" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1CB0AC"/><stop offset="0.6" stop-color="#119A97"/><stop offset="1" stop-color="#0C7F7C"/></linearGradient>
+ <radialGradient id="cheek" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#FF7A59" stop-opacity="0.8"/><stop offset="1" stop-color="#FF7A59" stop-opacity="0"/></radialGradient>
+ <radialGradient id="grnd" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#14262B" stop-opacity="0.18"/><stop offset="1" stop-color="#14262B" stop-opacity="0"/></radialGradient>
+ <clipPath id="bodyclip"><path d="M44 196 C44 150 54 120 92 112 L106 112 C116 80 130 72 150 72 C170 72 184 80 194 112 L208 112 C246 120 256 150 256 196 C256 220 240 232 214 232 L86 232 C60 232 44 220 44 196 Z"/></clipPath>
+ <clipPath id="faceclip"><path d="M104 150 C106 108 124 92 150 92 C176 92 194 108 196 150 C196 168 183 178 166 178 L134 178 C117 178 104 168 104 150 Z"/></clipPath>
+</defs>
+ <ellipse cx="150" cy="256" rx="100" ry="18" fill="url(#grnd)"/>
+ 
+ <!-- wheels (cute) -->
+ <ellipse cx="96" cy="232" rx="22" ry="22" fill="#14262B"/><circle cx="96" cy="232" r="9" fill="#33484E"/>
+ <ellipse cx="204" cy="232" rx="22" ry="22" fill="#14262B"/><circle cx="204" cy="232" r="9" fill="#33484E"/>
+ <!-- body -->
+ <path d="M44 196 C44 150 54 120 92 112 L106 112 C116 80 130 72 150 72 C170 72 184 80 194 112 L208 112 C246 120 256 150 256 196 C256 220 240 232 214 232 L86 232 C60 232 44 220 44 196 Z" fill="url(#body)"/>
+ <g clip-path="url(#bodyclip)">
+   <ellipse cx="150" cy="250" rx="150" ry="40" fill="#0A6360" opacity="0.55"/>
+   <ellipse cx="116" cy="96" rx="60" ry="30" fill="#FFFFFF" opacity="0.10"/>
+ </g>
+ <!-- headlights -->
+ <ellipse cx="74" cy="190" rx="13" ry="10" fill="#FFD24C"/><ellipse cx="226" cy="190" rx="13" ry="10" fill="#FFD24C"/>
+ <!-- face panel -->
+ <path d="M104 150 C106 108 124 92 150 92 C176 92 194 108 196 150 C196 168 183 178 166 178 L134 178 C117 178 104 168 104 150 Z" fill="#FFFFFF"/>
+ <g clip-path="url(#faceclip)"><ellipse cx="128" cy="100" rx="40" ry="18" fill="#EAFBFA" opacity="0.7"/></g>
+ <circle cx="131" cy="130" r="18" fill="#FFFFFF"/><circle cx="132" cy="133" r="9" fill="#14262B"/><circle cx="135" cy="130" r="3" fill="#FFFFFF"/><circle cx="169" cy="130" r="18" fill="#FFFFFF"/><circle cx="168" cy="133" r="9" fill="#14262B"/><circle cx="171" cy="130" r="3" fill="#FFFFFF"/><rect x="114" y="108" width="26" height="6" rx="3" fill="#14262B" transform="rotate(16 127 108)"/><rect x="160" y="108" width="26" height="6" rx="3" fill="#14262B" transform="rotate(-16 173 108)"/><path d="M137 162 q7 -6 14 0 q7 6 14 0" fill="none" stroke="#5A2330" stroke-width="5" stroke-linecap="round"/>
+ <g transform="translate(198,108)"><path d="M0 0 C-7 9 -9 15 -2 19 C5 22 8 14 4 6 Z" fill="#5FB8E8"/></g>
+</svg>

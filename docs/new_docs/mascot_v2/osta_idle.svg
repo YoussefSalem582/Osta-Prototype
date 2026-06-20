@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 268"><defs>
+ <linearGradient id="body" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1AA9A6"/><stop offset="0.55" stop-color="#0F8784"/><stop offset="1" stop-color="#0A5A5A"/></linearGradient>
+ <linearGradient id="roof" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#21B4B0"/><stop offset="1" stop-color="#0E807E"/></linearGradient>
+ <linearGradient id="glass" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#E4F4F4"/></linearGradient>
+ <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#FFE08A"/><stop offset="0.6" stop-color="#FFD24C"/><stop offset="1" stop-color="#FFD24C" stop-opacity="0"/></radialGradient>
+ <radialGradient id="hub" cx="0.4" cy="0.35" r="0.7"><stop offset="0" stop-color="#6E8C8C"/><stop offset="1" stop-color="#26403F"/></radialGradient>
+ <radialGradient id="cheek" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#FF7A59" stop-opacity="0.75"/><stop offset="1" stop-color="#FF7A59" stop-opacity="0"/></radialGradient>
+ <radialGradient id="grnd" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#14262B" stop-opacity="0.20"/><stop offset="1" stop-color="#14262B" stop-opacity="0"/></radialGradient>
+ <clipPath id="wsClip"><path d="M104 140 C106 104 124 90 150 90 C176 90 194 104 196 140 C196 154 186 162 172 162 L128 162 C114 162 104 154 104 140 Z"/></clipPath>
+</defs>
+ <ellipse cx="150" cy="244" rx="104" ry="20" fill="url(#grnd)"/>
+ 
+ <!-- wheels -->
+ <g><circle cx="86" cy="208" r="29" fill="#14262B"/><circle cx="86" cy="208" r="14" fill="url(#hub)"/><circle cx="81" cy="203" r="4" fill="#FFFFFF" opacity="0.35"/></g>
+ <g><circle cx="214" cy="208" r="29" fill="#14262B"/><circle cx="214" cy="208" r="14" fill="url(#hub)"/><circle cx="209" cy="203" r="4" fill="#FFFFFF" opacity="0.35"/></g>
+ <!-- side mirrors -->
+ <ellipse cx="46" cy="150" rx="11" ry="9" fill="#0C6B6B"/><ellipse cx="254" cy="150" rx="11" ry="9" fill="#0C6B6B"/>
+ <!-- roof service beacon -->
+ <rect x="134" y="60" width="32" height="14" rx="7" fill="#FFB02E"/><rect x="146" y="63" width="8" height="8" rx="2" fill="#FFFFFF" opacity="0.8"/>
+ <!-- cabin/roof -->
+ <path d="M82 146 C86 98 116 76 150 76 C184 76 214 98 218 146 Z" fill="url(#roof)"/>
+ <path d="M100 110 C112 90 134 82 150 82" fill="none" stroke="#6FE0DD" stroke-width="5" stroke-linecap="round" opacity="0.45"/>
+ <!-- lower body -->
+ <rect x="42" y="140" width="216" height="70" rx="35" fill="url(#body)"/>
+ <rect x="60" y="196" width="180" height="14" rx="7" fill="#083E3E" opacity="0.35"/>
+ <!-- headlights -->
+ <ellipse cx="70" cy="176" rx="22" ry="18" fill="url(#glow)"/><ellipse cx="230" cy="176" rx="22" ry="18" fill="url(#glow)"/>
+ <rect x="56" y="168" width="28" height="16" rx="8" fill="#FFD24C"/><rect x="216" y="168" width="28" height="16" rx="8" fill="#FFD24C"/>
+ <!-- plate -->
+ <rect x="122" y="184" width="56" height="17" rx="4" fill="#FFFFFF" opacity="0.92"/>
+ <text x="150" y="197" font-family="Poppins" font-weight="700" font-size="12" fill="#0E7C7B" text-anchor="middle">OSTA</text>
+ <!-- windshield/face -->
+ <path d="M104 140 C106 104 124 90 150 90 C176 90 194 104 196 140 C196 154 186 162 172 162 L128 162 C114 162 104 154 104 140 Z" fill="url(#glass)"/>
+ <g clip-path="url(#wsClip)"><polygon points="150,88 178,88 138,164 110,164" fill="#FFFFFF" opacity="0.30"/></g>
+ <ellipse cx="120" cy="138" rx="13" ry="10" fill="url(#cheek)"/><ellipse cx="180" cy="138" rx="13" ry="10" fill="url(#cheek)"/><ellipse cx="126" cy="119" rx="18" ry="18" fill="#0E7C7B" opacity="0.10"/><circle cx="126" cy="118" r="17" fill="#FFFFFF"/><circle cx="126" cy="120" r="8.5" fill="#14262B"/><circle cx="129" cy="117" r="3" fill="#FFFFFF"/><circle cx="123" cy="123" r="1.5" fill="#FFFFFF" opacity="0.7"/><ellipse cx="174" cy="119" rx="18" ry="18" fill="#0E7C7B" opacity="0.10"/><circle cx="174" cy="118" r="17" fill="#FFFFFF"/><circle cx="174" cy="120" r="8.5" fill="#14262B"/><circle cx="177" cy="117" r="3" fill="#FFFFFF"/><circle cx="171" cy="123" r="1.5" fill="#FFFFFF" opacity="0.7"/><path d="M130 136 Q150 156 170 136" fill="none" stroke="#FFB02E" stroke-width="7" stroke-linecap="round"/>
+ 
+</svg>
