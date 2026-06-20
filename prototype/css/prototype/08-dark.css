@@ -197,33 +197,14 @@
 [data-theme="dark"] .tab-bar,
 [data-theme="dark"] .b2b-tab-bar {
   background: var(--elevated);
-  border-top-color: #334155;
+  border-top-color: var(--hairline);
   box-shadow: 0 -6px 24px rgba(0, 0, 0, 0.25);
 }
-[data-theme="dark"] .tab:not(.on) {
-  color: var(--muted);
-}
-[data-theme="dark"] .tab:not(.on) .ic {
-  color: var(--muted);
-}
-[data-theme="dark"] .tab-bar .tab.on {
-  background: rgba(45, 212, 191, 0.14);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.06),
-    inset 0 0 0 1px rgba(45, 212, 191, 0.2);
-}
-[data-theme="dark"] .b2b-tab-bar .tab.on {
-  background: rgba(45, 212, 191, 0.14);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.06),
-    inset 0 0 0 1px rgba(45, 212, 191, 0.2);
-}
-[data-theme="dark"] .tab-bar button.tab:hover:not(.on) {
-  background: rgba(255, 255, 255, 0.05);
-}
-[data-theme="dark"] .tab-bar button.tab:active:not(.on) {
-  background: rgba(255, 255, 255, 0.08);
-}
+/* Active pill uses var(--brand-soft) (auto-adapts to dark); icon/label use
+   var(--muted)/var(--brand) (auto-adapt) — only the neutral hover/press tint
+   needs a light-on-dark override. */
+[data-theme="dark"] button.tab:hover:not(.on) .tab-ic-pill { background: rgba(255, 255, 255, 0.06); }
+[data-theme="dark"] button.tab:active:not(.on) .tab-ic-pill { background: rgba(255, 255, 255, 0.09); }
 [data-theme="dark"] .btn-ghost {
   background: #334155;
   color: var(--ink);

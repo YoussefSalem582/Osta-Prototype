@@ -2,6 +2,19 @@ import { Fragment } from 'react';
 import { useProto } from '../../context/ProtoContext';
 import { ProtoIcon } from './Icon';
 
+/** Shared inner content for a bottom-nav tab: the icon inside the
+ *  active-indicator pill, with the label beneath. Used by both tab bars. */
+function TabInner({ icon, label }: { icon: string; label: string }) {
+  return (
+    <>
+      <span className="tab-ic-pill">
+        <ProtoIcon name={icon} className="ic" strokeWidth={1.75} aria-hidden />
+      </span>
+      <span className="tab-label">{label}</span>
+    </>
+  );
+}
+
 export function B2cTabBar({ active }: { active: string }) {
   const { show, t } = useProto();
   /** Order: Home first (conventional), then map → bookings → shop → garage. */
@@ -19,15 +32,13 @@ export function B2cTabBar({ active }: { active: string }) {
         if (isOn) {
           return (
             <span key={id} className="tab on" aria-current="page">
-              <ProtoIcon name={icon} className="ic" strokeWidth={1.65} aria-hidden />
-              {label}
+              <TabInner icon={icon} label={label} />
             </span>
           );
         }
         return (
           <button key={id} type="button" className="tab tap" onClick={() => show(id)}>
-            <ProtoIcon name={icon} className="ic" strokeWidth={1.65} aria-hidden />
-            {label}
+            <TabInner icon={icon} label={label} />
           </button>
         );
       })}
@@ -77,15 +88,13 @@ export function B2bTabBar({ active }: { active: string }) {
         if (isOn) {
           return (
             <span key={id} className="tab on" aria-current="page">
-              <ProtoIcon name={icon} className="ic" strokeWidth={1.65} aria-hidden />
-              {label}
+              <TabInner icon={icon} label={label} />
             </span>
           );
         }
         return (
           <button key={id} type="button" className="tab tap" onClick={() => show(id)}>
-            <ProtoIcon name={icon} className="ic" strokeWidth={1.65} aria-hidden />
-            {label}
+            <TabInner icon={icon} label={label} />
           </button>
         );
       })}
