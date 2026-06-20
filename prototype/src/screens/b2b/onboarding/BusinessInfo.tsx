@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { ProtoHomeIndicator, ProtoStatusBar } from '../../../components/proto/Chrome';
 import { ProtoIcon } from '../../../components/proto/Icon';
 import { B2bTopbarMobile, OnboardStepper } from '../../../components/proto/TabBars';
@@ -13,6 +13,12 @@ export function B2bOnboard1() {
   const [mapOpen, setMapOpen] = useState(false);
   const [pinSaved, setPinSaved] = useState(false);
   const [pin, setPin] = useState({ x: 46, y: 43 });
+  const [draftSaved, setDraftSaved] = useState(false);
+  useEffect(() => {
+    if (!draftSaved) return;
+    const tm = window.setTimeout(() => setDraftSaved(false), 2000);
+    return () => window.clearTimeout(tm);
+  }, [draftSaved]);
 
   const bizChips: { id: BizKey; labelKey: string; fb: string }[] = [
     { id: 'independent', labelKey: 'b2b.on1.biz.ind', fb: 'Independent workshop' },
@@ -174,8 +180,20 @@ export function B2bOnboard1() {
               </div>
             </div>
             <div className="mt-6 flex flex-col gap-2">
-              <button type="button" className="btn-ghost tap w-full border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-900">
-                {t('b2b.on1.draft', 'Save draft')}
+              <button
+                type="button"
+                onClick={() => setDraftSaved(true)}
+                aria-live="polite"
+                className={`btn-ghost tap w-full border bg-white dark:bg-slate-900 ${draftSaved ? 'border-emerald-300 text-emerald-700 dark:border-emerald-700 dark:text-emerald-300' : 'border-slate-200 dark:border-slate-600'}`}
+              >
+                {draftSaved ? (
+                  <span className="flex items-center justify-center gap-1.5">
+                    <ProtoIcon name="check" className="w-4 h-4" aria-hidden />
+                    {t('b2b.on1.draft_saved', 'Draft saved')}
+                  </span>
+                ) : (
+                  t('b2b.on1.draft', 'Save draft')
+                )}
               </button>
               <button type="button" className="btn-primary tap shadow-md" onClick={() => show('b2b-onboard-3')}>
                 {t('b2b.on1.cont', 'Continue')} <ProtoIcon name="arrow-right" className="w-4 h-4" />

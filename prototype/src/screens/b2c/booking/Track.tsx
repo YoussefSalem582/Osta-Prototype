@@ -201,14 +201,20 @@ export function B2cProgress() {
             <span>{t('demo.track.inv_line_oil', 'Oil change (standard)')}</span>
             <span>{t('demo.track.price_350', 'EGP 350')}</span>
           </div>
-          <div className="flex justify-between text-slate-400 dark:text-slate-500 italic">
-            <span>{t('book.progress.addon', '+ Cabin filter (pending approval)')}</span>
-            <span>{t('demo.track.price_180', 'EGP 180')}</span>
+          <div className="flex justify-between items-center text-slate-500 dark:text-slate-400">
+            <span className="italic">{t('book.progress.addon', '+ Cabin filter (pending approval)')}</span>
+            <span className="not-italic text-[10px] font-semibold uppercase tracking-wide px-2 py-0.5 rounded-full bg-amber-100 text-amber-800 dark:bg-amber-950/50 dark:text-amber-200">
+              {t('book.progress.pending', 'Pending')}
+            </span>
           </div>
           <div className="divider my-2" />
           <div className="flex justify-between font-bold text-slate-900 dark:text-slate-100">
             <span>{t('book.pay.total', 'Total')}</span>
             <span>{t('demo.track.price_350', 'EGP 350')}</span>
+          </div>
+          <div className="flex justify-between text-[11px] text-slate-400 dark:text-slate-500 mt-0.5">
+            <span>{t('book.progress.if_approved', '+ EGP 180 if approved')}</span>
+            <span>{t('demo.track.price_530', 'EGP 530')}</span>
           </div>
         </div>
         <button type="button" className="mt-4 w-full py-3 rounded-xl text-sm font-semibold border border-slate-200 dark:border-slate-600 tap text-slate-900 dark:text-slate-100">

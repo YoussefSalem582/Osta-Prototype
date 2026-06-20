@@ -335,6 +335,15 @@ html[lang="ar-EG"] body, html[lang="ar-EG"] { font-family: 'Noto Sans Arabic', '
 .preauth-lang-option .preauth-lang-label { font-weight: 600; font-size: 16px; color: #0f172a; }
 .preauth-lang-meta { font-size: 12px; font-weight: 500; color: #94a3b8; }
 .preauth-feature-stack { margin-top: 20px; display: flex; flex-direction: column; gap: 12px; }
+/* Staggered entrance for the onboarding value-prop cards — the emotional core
+   of the funnel. Neutralized by the prefers-reduced-motion guard above. */
+@keyframes preauthCardIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: none; }
+}
+.preauth-feature-stack .preauth-feature-card { animation: preauthCardIn .42s ease both; }
+.preauth-feature-stack .preauth-feature-card:nth-child(2) { animation-delay: .09s; }
+.preauth-feature-stack .preauth-feature-card:nth-child(3) { animation-delay: .18s; }
 .preauth-feature-card {
   padding: 16px 16px 18px;
   border-radius: 18px;

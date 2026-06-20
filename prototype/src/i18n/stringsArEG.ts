@@ -277,6 +277,7 @@ export const STRINGS_AR_EG = {
   'map.proto.denied_msg': 'الموقع متوقّف — بنعرض مركز مدينة القاهرة حتى ترخّص الوصول أو تختار منطقة يدويًا.',
   'map.proto.emergency_msg': 'وضع الطوارئ يعطي أولوية للإسعاف والورش المتاحة ٢٤/٧ ضمن النطاق.',
   'map.proto.loading_label': 'جاري تحميل المراكز القريبة…',
+  'map.proto.loading_sub': 'بنتأكد من المواعيد المتاحة…',
   'map.proto.sheet_empty_title': 'مفيش مراكز في هذا النطاق بعد',
   'map.proto.sheet_empty_sub': 'وسّع الفلاتر، أو الزوم، أو حرّك الخريطة.',
   'map.proto.sheet_badge_none': '٠ مركز',
@@ -373,6 +374,7 @@ export const STRINGS_AR_EG = {
   'disc.part.qty_plus': 'زيادة الكمية',
   'disc.part.cta_notify': 'أعلمني عند التوفر',
   'disc.part.cta_add': 'أضف للسلة',
+  'disc.part.cta_added': 'تمت الإضافة',
 
   'disc.filters.close': 'إغلاق',
   'disc.filters.title': 'عوامل التصفية',
@@ -562,6 +564,8 @@ export const STRINGS_AR_EG = {
   'book.progress.shop': 'الورشة',
   'book.progress.invoice': 'الفاتورة (لحد دلوقتي)',
   'book.progress.addon': '+ فلتر تكييف (بانتظار الموافقة)',
+  'book.progress.pending': 'قيد الموافقة',
+  'book.progress.if_approved': '+ EGP 180 لو اتوافق عليها',
   'book.progress.add_btn': 'ضيف فلتر تكييف (+EGP 180)',
 
   'book.rev.great': 'تجربة ممتازة',
@@ -581,6 +585,7 @@ export const STRINGS_AR_EG = {
   'acct.garage.next': 'التالي',
   'acct.garage.spent': 'مصروف السنة',
   'acct.garage.add': 'ضيف عربية تانية',
+  'acct.garage.add_hint': 'إضافة عربية هتكون متاحة قريبًا.',
   'acct.garage.add_a11y': 'إضافة عربية',
   'acct.garage.primary_open': 'تفاصيل العربية الأساسية: تويوتا كورولا',
   'acct.garage.secondary_open': 'تفاصيل العربية: هيونداي توسان',
@@ -709,6 +714,7 @@ export const STRINGS_AR_EG = {
   'b2b.on1.independent': 'ورشة مستقلة',
   'b2b.on1.founded': 'سنة التأسيس',
   'b2b.on1.draft': 'احفظ مسودة',
+  'b2b.on1.draft_saved': 'تم حفظ المسودة',
   'b2b.on1.cont': 'متابعة',
   'b2b.on1.setup_label': 'تقدم الإعداد',
   'b2b.on1.setup_trade': 'الاسم التجاري',
@@ -1128,6 +1134,7 @@ export const STRINGS_AR_EG = {
   'demo.track.step_t4': '~ ١٢:٠٠ م',
   'demo.track.price_350': 'EGP 350',
   'demo.track.price_180': 'EGP 180',
+  'demo.track.price_530': 'EGP 530',
   'demo.track.review_ctx': 'شحن تكييف · 29 مارس',
   'demo.track.inv_line_oil': 'تغيير زيت (عادي)',
 

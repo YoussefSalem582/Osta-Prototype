@@ -17,12 +17,20 @@ export function B2cPartDetail() {
   const [slide, setSlide] = useState(0);
   const [qty, setQty] = useState(1);
   const [stock, setStock] = useState<StockDemo>('in_stock');
+  const [added, setAdded] = useState(false);
 
   useEffect(() => {
     setSlide(0);
     setQty(1);
     setStock('in_stock');
+    setAdded(false);
   }, [marketListingKey]);
+
+  useEffect(() => {
+    if (!added) return;
+    const tm = window.setTimeout(() => setAdded(false), 1500);
+    return () => window.clearTimeout(tm);
+  }, [added]);
 
   const price = t(row.priceKey, row.priceEn);
   const title = t(row.titleKey, row.titleEn);
@@ -218,10 +226,17 @@ export function B2cPartDetail() {
             <button
               type="button"
               disabled={oos}
-              className={`btn-primary flex-1 py-3 rounded-2xl text-sm font-semibold tap shadow-lg flex flex-col items-center justify-center gap-0.5 min-h-[3.25rem] ${oos ? '!opacity-50 pointer-events-none' : ''}`}
+              aria-live="polite"
+              onClick={() => setAdded(true)}
+              className={`btn-primary flex-1 py-3 rounded-2xl text-sm font-semibold tap shadow-lg flex flex-col items-center justify-center gap-0.5 min-h-[3.25rem] ${oos ? '!opacity-50 pointer-events-none' : ''} ${added ? '!bg-emerald-600' : ''}`}
             >
               {oos ? (
                 t('disc.part.cta_notify', 'Notify when back')
+              ) : added ? (
+                <span className="flex items-center gap-1.5">
+                  <ProtoIcon name="check" className="w-4 h-4" aria-hidden />
+                  {t('disc.part.cta_added', 'Added to cart')}
+                </span>
               ) : (
                 <>
                   <span>{t('disc.part.cta_add', 'Add to cart')}</span>

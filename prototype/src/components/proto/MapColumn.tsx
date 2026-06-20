@@ -213,11 +213,10 @@ export function B2cMapMainColumn() {
 
         {mapScenario === 'loading' ? (
           <div
-            className="absolute inset-0 z-[42] bg-white/70 dark:bg-slate-900/72 backdrop-blur-[2px] flex flex-col items-center justify-center gap-3 pointer-events-none"
+            className="absolute inset-x-0 top-0 bottom-[46%] z-[42] bg-white/55 dark:bg-slate-900/55 backdrop-blur-[1.5px] flex items-center justify-center pointer-events-none"
             aria-hidden
           >
-            <ProtoIcon name="loader-2" className="w-10 h-10 text-teal-600 dark:text-teal-400 animate-spin" />
-            <div className="text-sm font-semibold text-slate-700 dark:text-slate-300">{t('map.proto.loading_label', 'Loading nearby centers...')}</div>
+            <ProtoIcon name="loader-2" className="w-9 h-9 text-teal-600 dark:text-teal-400 animate-spin" />
           </div>
         ) : null}
 
@@ -226,28 +225,53 @@ export function B2cMapMainColumn() {
           <div className="map-results-sheet__header">
             <div className="min-w-0">
               <div className="text-[17px] font-bold text-slate-900 dark:text-slate-100 tracking-tight">
-                {mapScenario === 'empty'
-                  ? t('map.proto.sheet_empty_title', 'Nothing in this radius yet')
-                  : t('map.sheet.title', 'Nearest to you')}
+                {mapScenario === 'loading'
+                  ? t('map.proto.loading_label', 'Loading nearby centers...')
+                  : mapScenario === 'empty'
+                    ? t('map.proto.sheet_empty_title', 'Nothing in this radius yet')
+                    : t('map.sheet.title', 'Nearest to you')}
               </div>
               <div className="text-xs text-slate-500 dark:text-slate-400 mt-0.5 truncate">
-                {mapScenario === 'empty'
-                  ? t('map.proto.sheet_empty_sub', 'Loosen filters, zoom out, or move the map.')
-                  : t('map.sheet.sub', 'Sorted by distance - live availability')}
+                {mapScenario === 'loading'
+                  ? t('map.proto.loading_sub', 'Checking live availability…')
+                  : mapScenario === 'empty'
+                    ? t('map.proto.sheet_empty_sub', 'Loosen filters, zoom out, or move the map.')
+                    : t('map.sheet.sub', 'Sorted by distance - live availability')}
               </div>
             </div>
-            <span
-              className={`text-[11px] font-semibold px-2.5 py-1 rounded-full border flex-shrink-0 ${
-                mapScenario === 'empty'
-                  ? 'text-amber-900 dark:text-amber-100 bg-amber-50 dark:bg-amber-950/45 border-amber-200 dark:border-amber-800/60'
-                  : 'text-teal-800 dark:text-teal-100 bg-teal-50 dark:bg-teal-950/45 border-teal-100 dark:border-teal-800/60'
-              }`}
-            >
-              {mapScenario === 'empty' ? t('map.proto.sheet_badge_none', '0 centers') : t('map.sheet.badge', '17 centers')}
-            </span>
+            {mapScenario === 'loading' ? (
+              <span className="skeleton h-7 w-[4.5rem] rounded-full flex-shrink-0" aria-hidden />
+            ) : (
+              <span
+                className={`text-[11px] font-semibold px-2.5 py-1 rounded-full border flex-shrink-0 ${
+                  mapScenario === 'empty'
+                    ? 'text-amber-900 dark:text-amber-100 bg-amber-50 dark:bg-amber-950/45 border-amber-200 dark:border-amber-800/60'
+                    : 'text-teal-800 dark:text-teal-100 bg-teal-50 dark:bg-teal-950/45 border-teal-100 dark:border-teal-800/60'
+                }`}
+              >
+                {mapScenario === 'empty' ? t('map.proto.sheet_badge_none', '0 centers') : t('map.sheet.badge', '17 centers')}
+              </span>
+            )}
           </div>
           <div className="map-results-sheet__body proto-scroll">
-            {mapScenario === 'empty' ? (
+            {mapScenario === 'loading' ? (
+              <div className="space-y-2.5" aria-hidden>
+                {[0, 1, 2].map((i) => (
+                  <div
+                    key={i}
+                    className="map-listing-card border border-slate-200/80 dark:border-slate-700/70 bg-white dark:bg-slate-900"
+                  >
+                    <div className="map-listing-card__icon skeleton" />
+                    <div className="flex-1 min-w-0 space-y-2">
+                      <div className="skeleton h-3.5 w-2/3 rounded" />
+                      <div className="skeleton h-3 w-1/2 rounded" />
+                      <div className="skeleton h-3 w-5/12 rounded" />
+                    </div>
+                    <div className="skeleton h-8 w-14 rounded-lg self-center shrink-0" />
+                  </div>
+                ))}
+              </div>
+            ) : mapScenario === 'empty' ? (
               <div className="text-center py-7 px-2">
                 <ProtoIcon name="search-x" className="w-12 h-12 mx-auto text-slate-300 dark:text-slate-600 mb-3" aria-hidden />
                 <p className="text-sm font-semibold text-slate-800 dark:text-slate-200 mb-2">

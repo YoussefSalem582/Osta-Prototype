@@ -331,6 +331,16 @@ export function B2cSlot() {
     setSelectedMorningIdx(4);
   }, [slotDemo, dayIdx]);
 
+  // Live 10-minute hold countdown — restarts whenever the scenario or day
+  // changes so the "slot is held" narrative reads as real, not frozen.
+  const [holdSecs, setHoldSecs] = useState(9 * 60 + 42);
+  useEffect(() => {
+    setHoldSecs(9 * 60 + 42);
+    const id = setInterval(() => setHoldSecs((s) => (s > 0 ? s - 1 : 0)), 1000);
+    return () => clearInterval(id);
+  }, [slotDemo, dayIdx]);
+  const holdLabel = `${Math.floor(holdSecs / 60)}:${String(holdSecs % 60).padStart(2, '0')}`;
+
   const days = [
     t('demo.slot.d1', 'Sat 18'),
     t('demo.slot.d2', 'Sun 19'),
@@ -480,7 +490,7 @@ export function B2cSlot() {
             <ProtoIcon name="timer" className="w-5 h-5 text-amber-700 dark:text-amber-400 mt-0.5 shrink-0" aria-hidden />
             <div className="text-xs text-amber-950 dark:text-amber-100 leading-relaxed">
               <div className="font-bold text-[13px]">
-                {t('book.slot.hold_for', 'Slot held for')} {morning[selectedMorningIdx]} · {slotDemo !== 'empty_day' ? `${t('book.slot.live_hold', 'lock active')}: ${t('demo.slot.hold_countdown', '9m 42s')}` : '—'}
+                {t('book.slot.hold_for', 'Slot held for')} {morning[selectedMorningIdx]} · {slotDemo !== 'empty_day' ? `${t('book.slot.live_hold', 'lock active')}: ${holdLabel}` : '—'}
               </div>
               <span className="block mt-1 opacity-95">{t('book.slot.hold_confirm', 'Complete payment to confirm.')}</span>
             </div>

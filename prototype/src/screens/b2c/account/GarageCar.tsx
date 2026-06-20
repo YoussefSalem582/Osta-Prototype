@@ -17,6 +17,12 @@ type CardHistItem = {
 
 export function B2cGarage() {
   const { show, t } = useProto();
+  const [addHint, setAddHint] = useState(false);
+  useEffect(() => {
+    if (!addHint) return;
+    const tm = window.setTimeout(() => setAddHint(false), 3000);
+    return () => window.clearTimeout(tm);
+  }, [addHint]);
   return (
     <ScreenWrap id="b2c-garage">
       <ProtoStatusBar />
@@ -25,12 +31,22 @@ export function B2cGarage() {
         <button
           type="button"
           aria-label={t('acct.garage.add_a11y', 'Add car')}
+          onClick={() => setAddHint(true)}
           className="w-10 h-10 rounded-xl bg-gradient-to-br from-teal-600 to-cyan-600 flex items-center justify-center text-white shadow-md tap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2"
         >
           <ProtoIcon name="plus" className="w-4 h-4" aria-hidden />
         </button>
       </div>
       <div className="flex-1 overflow-y-auto px-5 pt-4 space-y-3 app-surface min-h-0">
+        {addHint ? (
+          <div
+            role="status"
+            className="rounded-xl px-3 py-2.5 text-[12px] font-medium text-teal-950 dark:text-teal-50 bg-teal-50 dark:bg-teal-950/50 ring-1 ring-teal-200/85 dark:ring-teal-800/55 shadow-sm flex items-center gap-2"
+          >
+            <ProtoIcon name="info" className="w-3.5 h-3.5 shrink-0 text-teal-600 dark:text-teal-300" aria-hidden />
+            {t('acct.garage.add_hint', 'Adding a vehicle is coming next.')}
+          </div>
+        ) : null}
         <button
           type="button"
           className="tap w-full text-left p-4 rounded-2xl text-white shadow-lg shadow-teal-900/25 gradient-garage-primary ring-1 ring-white/20 active:scale-[0.992] transition-transform focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900"
@@ -77,6 +93,7 @@ export function B2cGarage() {
         </button>
         <button
           type="button"
+          onClick={() => setAddHint(true)}
           className="tap w-full p-4 rounded-2xl border-2 border-dashed border-teal-300/80 dark:border-teal-600/50 text-teal-800 dark:text-teal-200 bg-teal-50/40 dark:bg-teal-950/35 text-sm font-semibold flex items-center justify-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2"
         >
           <ProtoIcon name="plus" className="w-4 h-4" aria-hidden />
