@@ -243,7 +243,7 @@ export function B2cFilters() {
       </div>
       <div className="flex-1 app-surface px-5 pt-4 pb-4 overflow-y-auto space-y-4 min-h-0">
         <div className="filters-section">
-          <div className="label mb-2 text-indigo-700 dark:text-indigo-300">{t('disc.filters.service', 'Service')}</div>
+          <div className="label mb-2">{t('disc.filters.service', 'Service')}</div>
           <div className="flex flex-wrap gap-2">
             {services.map((s) => {
               const on = svc.has(s);
@@ -257,7 +257,7 @@ export function B2cFilters() {
         </div>
         <div className="filters-section">
           <div className="flex justify-between mb-2">
-            <div className="label text-cyan-800 dark:text-cyan-300">{t('disc.filters.price', 'Price range')}</div>
+            <div className="label">{t('disc.filters.price', 'Price range')}</div>
             <div className="text-xs font-bold text-cyan-900 dark:text-cyan-100 bg-cyan-50 dark:bg-cyan-950/45 px-2 py-0.5 rounded-lg">
               {t('demo.filters.price_chip', 'EGP 200–1500')}
             </div>
@@ -275,7 +275,7 @@ export function B2cFilters() {
           </div>
         </div>
         <div className="filters-section">
-          <div className="label mb-2 text-amber-800 dark:text-amber-300">{t('disc.filters.rating', 'Minimum rating')}</div>
+          <div className="label mb-2">{t('disc.filters.rating', 'Minimum rating')}</div>
           <div className="flex gap-2 flex-wrap">
             {ratings.map((r) => {
               const on = rating === r;
@@ -289,7 +289,7 @@ export function B2cFilters() {
           </div>
         </div>
         <div className="filters-section">
-          <div className="label mb-2 text-violet-800 dark:text-violet-300">{t('disc.filters.distance', 'Distance')}</div>
+          <div className="label mb-2">{t('disc.filters.distance', 'Distance')}</div>
           <div className="flex gap-2 flex-wrap">
             {distances.map((d, i) => {
               const on = dist === i;
@@ -302,7 +302,7 @@ export function B2cFilters() {
           </div>
         </div>
         <div className="filters-section space-y-3">
-          <div className="label text-slate-600 dark:text-slate-400">{t('disc.filters.options', 'Options')}</div>
+          <div className="label">{t('disc.filters.options', 'Options')}</div>
           {optionDefs.map(([label]) => {
             const on = opts[label];
             return (

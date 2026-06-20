@@ -1,0 +1,299 @@
+/* B2B tablet */
+.side-nav { width: 240px; background: #0F172A; color: #CBD5E1; display: flex; flex-direction: column; padding: 22px 14px; gap: 4px; }
+.side-item { display: flex; align-items: center; gap: 12px; padding: 10px 12px; border-radius: 10px; font-size: 14px; color: #CBD5E1; cursor: pointer; }
+.side-item.on { background: #14B8A6; color: #022; font-weight: 600; }
+.side-item:hover:not(.on) { background: #1E293B; color: #fff; }
+.kpi { background: var(--elevated); border: 1px solid var(--hairline); border-radius: var(--r-xl); padding: 18px; box-shadow: var(--elevation-1); font-variant-numeric: tabular-nums; }
+.table th { font-size: 12px; text-transform: uppercase; letter-spacing: .04em; color: #64748B; font-weight: 600; text-align: left; padding: 12px; background: #F8FAFC; }
+.table td { padding: 14px 12px; border-top: 1px solid #E2E8F0; font-size: 14px; color: var(--ink); }
+.badge { display: inline-flex; align-items: center; gap: 4px; padding: 2px 10px; border-radius: 999px; font-size: 11px; font-weight: 600; }
+.b-green { background: #DCFCE7; color: #166534; }
+.b-amber { background: #FEF3C7; color: #92400E; }
+.b-red   { background: #FEE2E2; color: #991B1B; }
+.b-blue  { background: #DBEAFE; color: #1E40AF; }
+.b-slate { background: #F1F5F9; color: #334155; }
+
+.rail { background: #fff; border-left: 1px solid #E2E8F0; width: 340px; overflow-y: auto; }
+.screen-list { max-height: calc(100vh - 220px); overflow-y: auto; }
+
+/* Flutter Team Guide mocks */
+.ftg-screen-inner {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding: 1rem 1.25rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  background: linear-gradient(180deg, #f8fafc 0%, #fff 28%);
+}
+.ftg-eyebrow {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #64748b;
+  font-weight: 600;
+}
+.ftg-title {
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: #0f172a;
+  line-height: 1.25;
+  margin: 0;
+}
+.ftg-list {
+  font-size: 0.8125rem;
+  color: #334155;
+  line-height: 1.45;
+  padding-left: 1.125rem;
+  margin: 0.25rem 0 0;
+}
+.ftg-list li { margin-bottom: 0.4rem; }
+.ftg-list li:last-child { margin-bottom: 0; }
+
+.ftg-list.ftg-list-structured > li {
+  list-style: none;
+  margin-left: -1.125rem;
+  padding-left: 0;
+  margin-bottom: 0.75rem;
+  border-left: 3px solid var(--brand-soft);
+  padding-left: 0.65rem;
+}
+.ftg-list.ftg-list-structured {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 0.35rem;
+}
+.ftg-li-label {
+  display: block;
+  font-weight: 700;
+  font-size: 0.8125rem;
+  color: var(--brand-dark);
+  margin-bottom: 0.2rem;
+  letter-spacing: 0.01em;
+}
+.ftg-li-body {
+  display: block;
+  font-size: 0.8125rem;
+  color: #334155;
+  line-height: 1.5;
+}
+.ftg-li-body strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+.ftg-sublist {
+  margin: 0.35rem 0 0;
+  padding-left: 1.125rem;
+  font-size: 0.75rem;
+  color: #475569;
+  line-height: 1.45;
+}
+.ftg-sublist li { margin-bottom: 0.25rem; }
+
+.ftg-arch-diagram {
+  margin-top: 0.85rem;
+  padding: 0.75rem 0.7rem;
+  border-radius: 12px;
+  background: var(--surface-2);
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 1px 0 rgba(15, 23, 42, 0.04);
+}
+.ftg-arch-title {
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  margin-bottom: 0.5rem;
+}
+.ftg-arch-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  padding: 0.45rem 0;
+  border-top: 1px solid #e2e8f0;
+}
+.ftg-arch-row:first-of-type { border-top: 0; padding-top: 0; }
+.ftg-arch-layer {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--brand-dark);
+}
+.ftg-arch-desc {
+  font-size: 0.72rem;
+  color: #475569;
+  line-height: 1.4;
+}
+
+.ftg-pkg-wrap {
+  margin-top: 0.75rem;
+}
+.ftg-pkg-eyebrow {
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  margin-bottom: 0.4rem;
+}
+.ftg-pkg-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+.ftg-pkg {
+  display: inline-block;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.68rem;
+  font-weight: 500;
+  color: var(--indigo);
+  background: var(--indigo-soft);
+  padding: 0.2rem 0.45rem;
+  border-radius: 6px;
+  border: 1px solid rgba(79, 70, 229, 0.15);
+}
+
+/* Phone + detail column (B2C, B2B) */
+.proto-pair-layout {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 1.5rem;
+}
+/* Flutter Team Guide: single centered technical column */
+.ftg-guide-layout {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: 100%;
+}
+.ftg-main-layout {
+  align-items: flex-start;
+}
+.proto-detail-spec-block {
+  padding-bottom: 0.25rem;
+}
+.proto-spec-dl {
+  display: grid;
+  grid-template-columns: minmax(4rem, auto) 1fr;
+  gap: 0.35rem 1rem;
+  font-size: 0.8125rem;
+  margin: 0;
+}
+.proto-spec-dl dt {
+  margin: 0;
+  font-weight: 600;
+  color: var(--muted);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.proto-spec-dl dd {
+  margin: 0;
+  color: var(--ink);
+  line-height: 1.45;
+}
+.proto-spec-dl dd.proto-spec-dd-pre {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.75rem;
+  white-space: pre-wrap;
+  word-break: break-word;
+  max-height: 12rem;
+  overflow: auto;
+  padding: 0.35rem 0.45rem;
+  background: var(--surface-2);
+  border-radius: 6px;
+  border: 1px solid var(--hairline);
+}
+.proto-tech-block {
+  max-width: 100%;
+}
+.proto-code-hint {
+  margin: 0.35rem 0 0;
+  padding: 0.65rem 0.75rem;
+  font-size: 0.72rem;
+  line-height: 1.45;
+  background: #0f172a;
+  color: #e2e8f0;
+  border-radius: 10px;
+  border: 1px solid #334155;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  user-select: all;
+}
+.proto-code-hint code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  white-space: pre;
+  display: block;
+}
+[data-theme="dark"] .proto-code-hint {
+  background: #020617;
+  border-color: #475569;
+  color: #e2e8f0;
+}
+.ftg-handbook-aside {
+  width: min(460px, 100%);
+  max-height: calc(100vh - 120px);
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 1.1rem 1.15rem 1.25rem;
+  background: var(--elevated);
+  border: 1px solid var(--hairline);
+  border-radius: 1.25rem;
+  box-shadow: 0 10px 40px -12px var(--shadow-ink);
+  position: sticky;
+  top: 1rem;
+  -webkit-overflow-scrolling: touch;
+}
+.ftg-handbook-aside.ftg-guide-full {
+  width: 100%;
+  max-width: 56rem;
+  min-height: min(70vh, 720px);
+}
+.ftg-tech-intro {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--brand-dark);
+  margin: 0 0 0.75rem;
+  padding: 0.45rem 0.6rem;
+  background: var(--brand-soft);
+  border-radius: 8px;
+  border: 1px solid rgba(15, 118, 110, 0.2);
+}
+.ftg-tech-primary {
+  padding-bottom: 0.25rem;
+}
+.ftg-handbook-inner .ftg-handbook-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.25;
+  margin: 0.2rem 0 0.35rem;
+}
+.ftg-handbook-inner .ftg-eyebrow {
+  margin-bottom: 0.1rem;
+}
+.ftg-guide-hint {
+  font-size: 0.7rem;
+  color: var(--muted);
+  line-height: 1.35;
+  margin: 0 0 0.55rem;
+  padding: 0.45rem 0.55rem;
+  background: var(--info-soft);
+  border-radius: 8px;
+  border: 1px solid rgba(37, 99, 235, 0.2);
+}
+.ftg-guide-hint strong {
+  color: var(--brand-dark);
+  font-weight: 600;
+}
+
+details summary { list-style: none; cursor: pointer; }
+details summary::-webkit-details-marker { display: none; }
+

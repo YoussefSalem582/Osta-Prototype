@@ -1,0 +1,483 @@
+.funnel-hero-b2c {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse 120% 80% at 50% -20%, rgba(15, 118, 110, 0.14) 0%, transparent 50%),
+    linear-gradient(180deg, #ECFDF5 0%, #F8FAFC 42%, #fff 100%);
+}
+.funnel-hero-b2c > * { position: relative; z-index: 1; }
+.funnel-hero-b2c::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 70% 45% at 80% 100%, rgba(15, 118, 110, 0.06) 0%, transparent 50%);
+  pointer-events: none;
+}
+.funnel-hero-b2b {
+  background: linear-gradient(165deg, #0f766e 0%, #0d5c56 38%, #0b4f4a 62%, #0f172a 100%);
+}
+
+/* Minimal splash: large logo + name + slogan (tap/keyboard to continue) */
+.splash-minimal {
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+.splash-minimal:focus {
+  outline: none;
+}
+.splash-minimal:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 3px;
+}
+.splash-minimal--b2b:focus-visible {
+  outline-color: rgba(255, 255, 255, 0.9);
+}
+.splash-minimal-logo {
+  width: min(72vw, 260px);
+  height: auto;
+  max-height: min(38vh, 280px);
+  object-fit: contain;
+  display: block;
+  flex-shrink: 0;
+}
+.splash-minimal-logo--b2b {
+  filter: drop-shadow(0 14px 32px rgba(0, 0, 0, 0.35));
+}
+.splash-minimal-title {
+  font-size: clamp(1.75rem, 5.5vw, 2.35rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+  margin: 0;
+}
+.splash-minimal-title--b2c {
+  color: #0f172a;
+}
+.splash-minimal-title--b2b {
+  color: #fff;
+}
+.splash-minimal-tagline {
+  margin: 0;
+  line-height: 1.55;
+  max-width: 22rem;
+  font-size: clamp(0.95rem, 2.9vw, 1.125rem);
+}
+.splash-minimal-tagline--b2c {
+  color: #475569;
+}
+.splash-minimal-tagline--b2b {
+  color: rgba(204, 251, 241, 0.96);
+}
+
+.funnel-progress {
+  height: 3px;
+  background: rgba(15, 23, 42, 0.08);
+  flex-shrink: 0;
+  width: 100%;
+}
+.funnel-progress-fill {
+  height: 100%;
+  background: var(--brand);
+  /* Round only the leading (inline-end) edge so it mirrors correctly in RTL. */
+  border-start-start-radius: 0;
+  border-end-start-radius: 0;
+  border-start-end-radius: 2px;
+  border-end-end-radius: 2px;
+  transition: width var(--dur-slow) var(--ease-standard);
+}
+.screen[data-screen="b2b-splash"] .status-bar { color: rgba(255, 255, 255, 0.92); }
+.screen[data-screen="b2b-splash"] .funnel-progress { background: rgba(255, 255, 255, 0.22); }
+.screen[data-screen="b2b-splash"] .funnel-progress-fill { background: #fff; }
+
+/* —— Pre-auth funnel (B2C + B2B) —— */
+.preauth-funnel-scroll {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.preauth-funnel-surface {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 55%, #eef2f6 100%);
+}
+.preauth-funnel-surface--white {
+  background: #fff;
+}
+.funnel-nav {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 16px 12px;
+  border-bottom: 1px solid rgba(226, 232, 240, 0.9);
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(10px);
+}
+.funnel-nav--ghost {
+  border-bottom-color: transparent;
+  background: transparent;
+  backdrop-filter: none;
+}
+.funnel-back {
+  width: 44px;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--r-md);
+  color: #475569;
+  background: #f1f5f9;
+  border: none;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+.funnel-back:hover { background: #e2e8f0; color: #0f172a; }
+.funnel-nav-title {
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: #0f172a;
+}
+.funnel-nav-spacer { flex: 1; min-width: 8px; }
+.funnel-skip {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--brand);
+  padding: 8px 6px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+}
+.funnel-skip:hover { color: var(--brand-dark); }
+.preauth-eyebrow {
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--brand);
+  margin-bottom: 6px;
+}
+.preauth-headline {
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+  color: #0f172a;
+}
+.preauth-sub {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #64748b;
+  margin-top: 6px;
+}
+.preauth-lang-grid { margin-top: 24px; display: flex; flex-direction: column; gap: 12px; }
+.preauth-lang-option {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 18px;
+  border-radius: 16px;
+  border: 1px solid #e2e8f0;
+  background: #fff;
+  text-align: left;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.12s ease;
+}
+.preauth-lang-option:hover {
+  border-color: #cbd5e1;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.07);
+}
+.preauth-lang-option--active {
+  border-width: 2px;
+  border-color: var(--brand);
+  background: linear-gradient(135deg, rgba(204, 251, 241, 0.65) 0%, #fff 100%);
+  box-shadow: 0 4px 18px rgba(15, 118, 110, 0.12);
+}
+.preauth-lang-option .preauth-lang-label { font-weight: 600; font-size: 16px; color: #0f172a; }
+.preauth-lang-meta { font-size: 12px; font-weight: 500; color: #94a3b8; }
+.preauth-feature-stack { margin-top: 20px; display: flex; flex-direction: column; gap: 12px; }
+/* Staggered entrance for the onboarding value-prop cards — the emotional core
+   of the funnel. Neutralized by the prefers-reduced-motion guard above. */
+@keyframes preauthCardIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: none; }
+}
+.preauth-feature-stack .preauth-feature-card { animation: preauthCardIn .42s ease both; }
+.preauth-feature-stack .preauth-feature-card:nth-child(2) { animation-delay: .09s; }
+.preauth-feature-stack .preauth-feature-card:nth-child(3) { animation-delay: .18s; }
+.preauth-feature-card {
+  padding: 16px 16px 18px;
+  border-radius: 18px;
+  border: 1px solid rgba(226, 232, 240, 0.95);
+  background: #fff;
+  box-shadow: 0 2px 12px rgba(15, 23, 42, 0.05);
+}
+.preauth-feature-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(145deg, #ccfbf1 0%, #99f6e4 100%);
+  color: #0f766e;
+  margin-bottom: 12px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7);
+}
+.preauth-feature-title { font-size: 16px; font-weight: 700; color: #0f172a; letter-spacing: -0.02em; }
+.preauth-feature-desc {
+  font-size: 13px;
+  line-height: 1.45;
+  color: #64748b;
+  margin-top: 4px;
+}
+.preauth-page-title {
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1.15;
+  color: #0f172a;
+}
+.preauth-page-lead {
+  font-size: 15px;
+  line-height: 1.5;
+  color: #64748b;
+  margin-top: 8px;
+}
+.preauth-auth-panel {
+  margin-top: 28px;
+  padding: 20px;
+  border-radius: 20px;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 8px 28px rgba(15, 23, 42, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.preauth-legal {
+  font-size: 11px;
+  line-height: 1.45;
+  color: #94a3b8;
+  text-align: center;
+  padding: 0 8px 20px;
+  max-width: 340px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.preauth-link-ghost {
+  display: inline;
+  padding: 0;
+  background: none;
+  border: none;
+  font: inherit;
+  font-weight: 600;
+  color: var(--brand);
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.preauth-link-ghost:hover { color: var(--brand-dark); }
+.preauth-secondary-text {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--brand);
+  padding: 12px 8px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  border-radius: 12px;
+}
+.preauth-secondary-text:hover { color: var(--brand-dark); }
+.preauth-splash-mark {
+  width: 88px;
+  height: 88px;
+  border-radius: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 28px;
+  background: var(--brand);
+  color: #fff;
+  box-shadow:
+    0 16px 40px rgba(15, 118, 110, 0.35),
+    0 0 0 1px rgba(255, 255, 255, 0.2) inset;
+}
+.preauth-splash-mark--logo {
+  background: #fff;
+  padding: 10px;
+  box-shadow:
+    0 16px 40px rgba(15, 118, 110, 0.22),
+    0 0 0 1px rgba(15, 118, 110, 0.08) inset;
+}
+.preauth-splash-logo-img {
+  width: 68px;
+  height: 68px;
+  object-fit: contain;
+  display: block;
+}
+.preauth-splash-title {
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+  color: #0f172a;
+}
+.preauth-splash-tagline {
+  font-size: 15px;
+  line-height: 1.55;
+  color: #475569;
+  margin-top: 10px;
+  max-width: 288px;
+}
+.preauth-splash-cta {
+  width: 100%;
+  max-width: 300px;
+  margin-top: 40px;
+  padding: 16px 20px;
+  border-radius: 16px;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  background: var(--brand);
+  color: #fff;
+  box-shadow: 0 8px 24px rgba(15, 118, 110, 0.35);
+  transition: filter 0.15s ease, transform 0.12s ease;
+}
+.preauth-splash-cta:hover { filter: brightness(1.05); }
+.preauth-splash-b2b-mark {
+  width: 88px;
+  height: 88px;
+  border-radius: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 28px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  color: #fff;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(8px);
+}
+.preauth-splash-b2b-mark--logo {
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  padding: 10px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+}
+.preauth-splash-b2b-logo-img {
+  width: 68px;
+  height: 68px;
+  object-fit: contain;
+  display: block;
+}
+.preauth-splash-b2b-title {
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+  color: #fff;
+}
+.preauth-splash-b2b-tagline {
+  font-size: 15px;
+  line-height: 1.55;
+  color: rgba(204, 251, 241, 0.95);
+  margin-top: 10px;
+  max-width: 288px;
+}
+.preauth-splash-b2b-cta {
+  width: 100%;
+  max-width: 300px;
+  margin-top: 40px;
+  padding: 16px 20px;
+  border-radius: 16px;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  background: #fff;
+  color: #134e4a;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+.preauth-splash-b2b-secondary {
+  font-size: 15px;
+  font-weight: 600;
+  color: rgba(204, 251, 241, 0.98);
+  margin-top: 20px;
+  padding: 10px 8px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.preauth-splash-b2b-secondary:hover { color: #fff; }
+.preauth-form-fields { margin-top: 28px; display: flex; flex-direction: column; gap: 18px; }
+.preauth-form-footer {
+  font-size: 14px;
+  color: #64748b;
+  text-align: center;
+  margin-top: 24px;
+}
+.preauth-signup-hero {
+  padding: 20px 22px 28px;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+.preauth-signup-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 90% 70% at 100% 0%, rgba(255, 255, 255, 0.12) 0%, transparent 45%);
+  pointer-events: none;
+}
+.preauth-signup-hero > * { position: relative; z-index: 1; }
+.preauth-signup-sheet {
+  background: linear-gradient(180deg, #f8fafc 0%, #fff 48%);
+  padding: 22px 20px 28px;
+  border-radius: 22px 22px 0 0;
+  margin-top: -18px;
+  position: relative;
+  box-shadow: 0 -12px 40px rgba(15, 23, 42, 0.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.4);
+}
+.preauth-signup-sheet .preauth-page-title { font-size: 20px; }
+.proto-input {
+  width: 100%;
+  background: var(--elevated);
+  border-radius: var(--r-xl);
+  border: 1px solid var(--hairline);
+  font-size: 15px;
+  color: var(--ink);
+  transition: border-color 0.15s var(--ease-standard), box-shadow 0.15s var(--ease-standard);
+}
+.proto-input:hover { border-color: #cbd5e1; }
+.proto-input:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 0;
+  border-color: var(--brand);
+}
+/* Latin / numeric values stay LTR even under Arabic RTL so emails, phone
+   numbers, URLs and prices don't get bidi-reordered. text-align:start keeps
+   them hugging the inline-start edge. */
+.proto-input[type="email"],
+.proto-input[type="tel"],
+.proto-input[type="url"],
+.proto-input[type="number"],
+.proto-input[inputmode="numeric"],
+.proto-input[inputmode="decimal"],
+.proto-input[inputmode="tel"] {
+  direction: ltr;
+  text-align: start;
+}
+button:focus-visible { outline: 2px solid var(--focus-ring); outline-offset: 2px; }
+

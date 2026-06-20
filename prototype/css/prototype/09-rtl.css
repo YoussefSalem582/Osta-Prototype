@@ -1,0 +1,42 @@
+/* —— RTL —— */
+/* Mirror directional glyphs in Arabic. lucide-react renders
+   <svg class="lucide lucide-arrow-left …"> (no data-lucide attr, no <i>), so
+   we target the real emitted classes. Opt OUT non-directional or
+   already-correct icons by adding `rtl-keep` on the icon. */
+[dir="rtl"] .phone-frame .lucide-arrow-left:not(.rtl-keep),
+[dir="rtl"] .phone-frame .lucide-arrow-right:not(.rtl-keep),
+[dir="rtl"] .phone-frame .lucide-chevron-left:not(.rtl-keep),
+[dir="rtl"] .phone-frame .lucide-chevron-right:not(.rtl-keep) {
+  transform: scaleX(-1);
+}
+[dir="rtl"] .chip-scroll-row {
+  flex-direction: row-reverse;
+}
+[dir="rtl"] .map-demo-toolbar,
+[dir="rtl"] .map-search-row,
+[dir="rtl"] .map-listing-card,
+[dir="rtl"] .map-results-sheet__header,
+[dir="rtl"] .map-listing-meta {
+  flex-direction: row-reverse;
+}
+[dir="rtl"] .map-control-stack {
+  right: auto;
+  left: 12px;
+}
+[dir="rtl"] .map-demo-toolbar__options {
+  direction: rtl;
+}
+[dir="rtl"] .ftg-list.ftg-list-structured > li {
+  border-left: none;
+  border-right: 3px solid var(--brand-soft);
+  padding-left: 0;
+  padding-right: 0.65rem;
+}
+[dir="rtl"] .ftg-list {
+  padding-right: 1.125rem;
+  padding-left: 0;
+}
+[dir="rtl"] .ftg-sublist {
+  padding-right: 1.125rem;
+  padding-left: 0;
+}
