@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { ProtoSwitchVisual } from '../../../components/proto/ProtoSwitch';
 import { B2cTabBar } from '../../../components/proto/TabBars';
 import { ProtoHomeIndicator, ProtoStatusBar } from '../../../components/proto/Chrome';
 import { ProtoIcon } from '../../../components/proto/Icon';
@@ -314,14 +315,7 @@ export function B2cFilters() {
                 onClick={() => setOpts((p) => ({ ...p, [label]: !p[label] }))}
               >
                 <span className="text-sm font-medium text-slate-800 dark:text-slate-200">{label}</span>
-                <span
-                  className={`w-10 h-6 rounded-full shrink-0 ${on ? 'bg-gradient-to-r from-teal-600 to-emerald-500' : 'bg-slate-200 dark:bg-slate-600'} relative transition-colors`}
-                  aria-hidden
-                >
-                  <span
-                    className={`absolute top-0.5 ${on ? 'end-0.5' : 'start-0.5'} w-5 h-5 rounded-full bg-white dark:bg-slate-900 shadow-md transition-all`}
-                  />
-                </span>
+                <ProtoSwitchVisual on={on} />
               </button>
             );
           })}

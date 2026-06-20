@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { ProtoHomeIndicator, ProtoStatusBar } from '../../../components/proto/Chrome';
 import { ProtoIcon } from '../../../components/proto/Icon';
+import { ProtoSwitchVisual } from '../../../components/proto/ProtoSwitch';
 import { B2bTabBar, B2bTopbarMobile } from '../../../components/proto/TabBars';
 import { useProto } from '../../../context/ProtoContext';
 import { ScreenWrap } from '../../shared/ScreenWrap';
@@ -304,7 +305,8 @@ export function B2bCatalog() {
                     <div className="flex flex-col items-end gap-1 shrink-0">
                       <button
                         type="button"
-                        aria-pressed={on}
+                        role="switch"
+                        aria-checked={on}
                         aria-label={
                           on ? t('b2b.cat.aria_live', 'Listed on catalogue') : t('b2b.cat.aria_hidden', 'Hidden from catalogue')
                         }
@@ -312,11 +314,9 @@ export function B2bCatalog() {
                           e.preventDefault();
                           setLive((m) => ({ ...m, [r.key]: !on }));
                         }}
-                        className={`relative mt-1 h-[22px] w-11 shrink-0 rounded-full border border-transparent tap transition-colors ${on ? 'bg-teal-600' : 'bg-slate-300 dark:bg-slate-600'}`}
+                        className="mt-1 shrink-0 rounded-full tap"
                       >
-                        <span
-                          className={`absolute top-[2px] inline-block h-4 w-4 rounded-full bg-white shadow transition-transform dark:bg-slate-900 ${on ? 'right-[5px]' : 'left-[5px]'}`}
-                        />
+                        <ProtoSwitchVisual on={on} />
                       </button>
                       <span className="text-[9px] font-semibold uppercase tracking-wide text-slate-400">
                         {on ? t('b2b.cat.live_on', 'Live') : t('b2b.cat.live_off', 'Off')}
@@ -339,6 +339,8 @@ export function B2bCatalog() {
 
                       <button
                         type="button"
+                        role="switch"
+                        aria-checked={pk}
                         onClick={(e) => {
                           e.stopPropagation();
                           setPromo((m) => ({ ...m, [r.key]: !pk }));
@@ -349,14 +351,7 @@ export function B2bCatalog() {
                           <ProtoIcon name="sparkles" className="h-4 w-4" aria-hidden />
                           {t('b2b.cat.promo', 'Spotlight promo (demo)')}
                         </span>
-                        <span
-                          className={`relative h-5 w-9 rounded-full border border-transparent transition ${pk ? 'bg-amber-500' : 'bg-slate-300 dark:bg-slate-600'}`}
-                          aria-hidden
-                        >
-                          <span
-                            className={`absolute top-[1px] inline-block h-3.5 w-3.5 rounded-full bg-white shadow ${pk ? 'right-[3px]' : 'left-[3px]'}`}
-                          />
-                        </span>
+                        <ProtoSwitchVisual on={pk} tone="amber" />
                       </button>
                       <p className="-mt-1 text-[10px] text-slate-500 dark:text-slate-400">{t('b2b.cat.promo_hint', 'Highlights this line in search results.')}</p>
 

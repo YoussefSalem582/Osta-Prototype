@@ -29,6 +29,13 @@
   --hairline: rgba(226, 232, 240, 0.95);
   --shadow-ink: rgba(15, 23, 42, 0.07);
   --focus-ring: rgba(15, 118, 110, 0.55);
+  /* Radius scale — single source of truth for the handoff (theme-independent). */
+  --r-sm: 10px;
+  --r-md: 12px;
+  --r-lg: 14px;
+  --r-xl: 16px;
+  --r-2xl: 20px;
+  --r-pill: 999px;
 }
 
 [data-theme="dark"] {
@@ -258,7 +265,7 @@ html[lang="ar-EG"] body, html[lang="ar-EG"] { font-family: 'Noto Sans Arabic', '
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: 12px;
+  border-radius: var(--r-md);
   color: #475569;
   background: #f1f5f9;
   border: none;
@@ -584,7 +591,7 @@ html[lang="ar-EG"] body, html[lang="ar-EG"] { font-family: 'Noto Sans Arabic', '
 .proto-input {
   width: 100%;
   background: #fff;
-  border-radius: 14px;
+  border-radius: var(--r-lg);
   border: 1px solid #e2e8f0;
   font-size: 15px;
   color: #0f172a;
@@ -1152,7 +1159,7 @@ button:focus-visible { outline: 2px solid var(--focus-ring); outline-offset: 2px
   background: #fff;
   color: var(--ink);
   font-weight: 600;
-  border-radius: 12px;
+  border-radius: var(--r-md);
   padding: 10px 14px;
   border: 1px solid #E2E8F0;
   font-size: 12px;
@@ -1161,12 +1168,12 @@ button:focus-visible { outline: 2px solid var(--focus-ring); outline-offset: 2px
 .btn-secondary { transition: background-color .15s ease, transform .12s ease, filter .15s ease, box-shadow .15s ease; }
 .btn-secondary:hover { background: #F8FAFC; }
 .btn-secondary:active { transform: scale(.98); filter: brightness(.97); }
-.chip { display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 999px; background: #fff; border: 1px solid #E2E8F0; font-size: 12px; font-weight: 500; color: var(--ink); box-shadow: 0 2px 6px rgba(15,23,42,.06); }
+.chip { display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: var(--r-pill); background: #fff; border: 1px solid #E2E8F0; font-size: 12px; font-weight: 500; color: var(--ink); box-shadow: 0 2px 6px rgba(15,23,42,.06); }
 .chip.on { background: var(--brand); color: #fff; border-color: var(--brand); }
-.btn-primary { background: var(--brand); color: #fff; font-weight: 600; border-radius: 14px; padding: 14px 16px; display: flex; align-items: center; justify-content: center; gap: 8px; transition: background-color .15s ease, transform .12s ease, filter .15s ease, box-shadow .15s ease; }
+.btn-primary { background: var(--brand); color: #fff; font-weight: 600; border-radius: var(--r-lg); padding: 14px 16px; display: flex; align-items: center; justify-content: center; gap: 8px; transition: background-color .15s ease, transform .12s ease, filter .15s ease, box-shadow .15s ease; }
 .btn-primary:hover { background: var(--brand-dark); }
-.btn-accent { background: var(--accent); color: #fff; font-weight: 600; border-radius: 14px; padding: 14px 16px; transition: background-color .15s ease, transform .12s ease, filter .15s ease, box-shadow .15s ease; }
-.btn-ghost { background: #F1F5F9; color: var(--ink); font-weight: 600; border-radius: 14px; padding: 14px 16px; transition: background-color .15s ease, transform .12s ease, filter .15s ease, box-shadow .15s ease; }
+.btn-accent { background: var(--accent); color: #fff; font-weight: 600; border-radius: var(--r-lg); padding: 14px 16px; transition: background-color .15s ease, transform .12s ease, filter .15s ease, box-shadow .15s ease; }
+.btn-ghost { background: #F1F5F9; color: var(--ink); font-weight: 600; border-radius: var(--r-lg); padding: 14px 16px; transition: background-color .15s ease, transform .12s ease, filter .15s ease, box-shadow .15s ease; }
 .btn-primary:active, .btn-accent:active, .btn-ghost:active { transform: scale(.98); filter: brightness(.96); }
 /* Large CTA variant — used on the primary action of ~19 screens. Previously
    undefined, so every hero CTA silently fell back to base size. */
@@ -1174,7 +1181,7 @@ button:focus-visible { outline: 2px solid var(--focus-ring); outline-offset: 2px
   width: 100%;
   padding: 15px 20px;
   font-size: 16px;
-  border-radius: 16px;
+  border-radius: var(--r-xl);
   min-height: 52px;
 }
 .sheet { position: absolute; left: 0; right: 0; bottom: 0; background: #fff; border-radius: 24px 24px 0 0; box-shadow: 0 -8px 24px rgba(15,23,42,.12); }
