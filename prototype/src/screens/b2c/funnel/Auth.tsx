@@ -1,6 +1,7 @@
 import { useProto } from '../../../context/ProtoContext';
 import { ProtoFunnelProgress, ProtoHomeIndicator, ProtoStatusBar } from '../../../components/proto/Chrome';
 import { ProtoIcon } from '../../../components/proto/Icon';
+import { ProtoPasswordField } from '../../../components/proto/PasswordField';
 import { ScreenWrap } from '../../shared/ScreenWrap';
 
 export function B2cAuth() {
@@ -94,11 +95,9 @@ export function B2cLogin() {
               <label className="label mb-2 block" htmlFor="b2c-login-password">
                 {t('common.password', 'Password')}
               </label>
-              <input
+              <ProtoPasswordField
                 id="b2c-login-password"
-                type="password"
-                className="proto-input px-3.5 py-3.5 text-sm"
-                defaultValue={t('demo.input.password_masked', '••••••••••')}
+                defaultValue={t('demo.input.password_sample', 'CarCare#2024')}
                 autoComplete="current-password"
               />
             </div>
@@ -168,17 +167,15 @@ export function B2cRegister() {
               <label className="label mb-1.5 block" htmlFor="b2c-register-password">
                 {t('common.password', 'Password')}
               </label>
-              <input id="b2c-register-password" type="password" className="proto-input px-3.5 py-3 text-sm" defaultValue={t('demo.input.password_masked', '••••••••••')} autoComplete="new-password" />
+              <ProtoPasswordField id="b2c-register-password" defaultValue={t('demo.input.password_sample', 'CarCare#2024')} autoComplete="new-password" />
             </div>
             <div>
               <label className="label mb-1.5 block" htmlFor="b2c-register-password-confirm">
                 {t('b2c.register.confirm', 'Confirm password')}
               </label>
-              <input
+              <ProtoPasswordField
                 id="b2c-register-password-confirm"
-                type="password"
-                className="proto-input px-3.5 py-3 text-sm"
-                defaultValue={t('demo.input.password_masked', '••••••••••')}
+                defaultValue={t('demo.input.password_sample', 'CarCare#2024')}
                 autoComplete="new-password"
               />
             </div>

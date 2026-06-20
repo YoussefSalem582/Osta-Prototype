@@ -5,7 +5,7 @@ import { ProtoIcon } from '../../../components/proto/Icon';
 import type { MarketListingKey } from '../../../context/ProtoContext';
 import { useProto } from '../../../context/ProtoContext';
 import { ScreenWrap } from '../../shared/ScreenWrap';
-import { MARKETPLACE_ROWS } from './marketplaceListings';
+import { MARKETPLACE_ROWS, type MarketCategory } from './marketplaceListings';
 
 export function B2cMarketplace() {
   const { t, show, setMarketListingKey } = useProto();
@@ -14,6 +14,26 @@ export function B2cMarketplace() {
     setMarketListingKey(key);
     show('b2c-part-detail');
   };
+  const chips: { label: string; cat: 'all' | MarketCategory }[] = [
+    { label: t('disc.market.chip_for_car', 'For your car'), cat: 'all' },
+    { label: t('disc.market.chip_filters', 'Filters'), cat: 'filters' },
+    { label: t('disc.market.chip_oil', 'Oil & fluids'), cat: 'oil' },
+    { label: t('disc.market.chip_batt', 'Batteries'), cat: 'batteries' },
+    { label: t('disc.market.chip_tires', 'Tires'), cat: 'tires' },
+    { label: t('disc.market.chip_brakes', 'Brakes'), cat: 'brakes' },
+  ];
+  const [cat, setCat] = useState<'all' | MarketCategory>('all');
+  const [q, setQ] = useState('');
+  const query = q.trim().toLowerCase();
+  const filtered = MARKETPLACE_ROWS.filter((row) => {
+    const matchesCat = cat === 'all' || row.category === cat;
+    const matchesQ =
+      !query ||
+      t(row.titleKey, row.titleEn).toLowerCase().includes(query) ||
+      t(row.sellerKey, row.sellerEn).toLowerCase().includes(query);
+    return matchesCat && matchesQ;
+  });
+  const isDefaultView = cat === 'all' && !query;
   return (
     <ScreenWrap id="b2c-marketplace">
       <ProtoStatusBar />
@@ -36,6 +56,9 @@ export function B2cMarketplace() {
               <ProtoIcon name="search" className="w-4 h-4 text-slate-400 dark:text-slate-500 shrink-0" aria-hidden />
               <input
                 id={searchId}
+                type="search"
+                value={q}
+                onChange={(e) => setQ(e.target.value)}
                 className="flex-1 min-w-0 bg-transparent text-sm text-slate-900 dark:text-slate-100 outline-none placeholder:text-slate-400 dark:placeholder:text-slate-500"
                 placeholder={t('disc.market.search_ph', 'Search parts, oil, VIN…')}
                 autoComplete="off"
@@ -54,17 +77,21 @@ export function B2cMarketplace() {
           </button>
         </div>
         <div className="chip-scroll-wrap pb-2 -mx-4 px-4">
-          <div className="chip-scroll-row" role="list">
-            <span role="listitem" className="chip on shrink-0">
-              {t('disc.market.chip_for_car', 'For your car')}
-            </span>
-            {[t('disc.market.chip_filters', 'Filters'), t('disc.market.chip_oil', 'Oil & fluids'), t('disc.market.chip_batt', 'Batteries'), t('disc.market.chip_tires', 'Tires'), t('disc.market.chip_brakes', 'Brakes')].map(
-              (lbl) => (
-                <span key={lbl} role="listitem" className="chip shrink-0 whitespace-nowrap">
-                  {lbl}
-                </span>
-              ),
-            )}
+          <div className="chip-scroll-row">
+            {chips.map(({ label, cat: c }) => {
+              const on = cat === c;
+              return (
+                <button
+                  key={c}
+                  type="button"
+                  aria-pressed={on}
+                  onClick={() => setCat(c)}
+                  className={`chip tap shrink-0 whitespace-nowrap ${on ? 'on' : ''}`}
+                >
+                  {label}
+                </button>
+              );
+            })}
           </div>
         </div>
         <div className="text-[11px] text-slate-500 dark:text-slate-400 pb-3 flex flex-wrap items-center gap-x-2 gap-y-1">
@@ -94,13 +121,33 @@ export function B2cMarketplace() {
         </button>
 
         <div className="flex items-end justify-between gap-2">
-          <span className="label">{t('disc.market.popular', 'Popular this week')}</span>
-          <button type="button" className="text-xs font-semibold text-teal-700 dark:text-teal-400 tap">
-            {t('disc.market.see_all', 'See all')}
+          <span className="label">
+            {isDefaultView ? t('disc.market.popular', 'Popular this week') : `${filtered.length} ${t('disc.market.results', 'results')}`}
+          </span>
+          <button
+            type="button"
+            className="text-xs font-semibold text-teal-700 dark:text-teal-400 tap"
+            onClick={isDefaultView ? undefined : () => { setCat('all'); setQ(''); }}
+          >
+            {isDefaultView ? t('disc.market.see_all', 'See all') : t('disc.market.clear', 'Clear')}
           </button>
         </div>
-        <div className="grid grid-cols-2 gap-3 pb-2">
-          {MARKETPLACE_ROWS.map((row) => (
+        {filtered.length === 0 ? (
+          <div className="text-center py-10 px-4">
+            <ProtoIcon name="search-x" className="w-12 h-12 mx-auto text-slate-300 dark:text-slate-600 mb-3" aria-hidden />
+            <p className="text-sm font-semibold text-slate-800 dark:text-slate-200 mb-1">{t('disc.market.empty_title', 'No parts in this category yet')}</p>
+            <p className="text-xs text-slate-500 dark:text-slate-400 mb-4">{t('disc.market.empty_sub', 'Try another category or clear your search.')}</p>
+            <button
+              type="button"
+              className="btn-secondary text-xs font-semibold tap rounded-xl px-4 py-2.5"
+              onClick={() => { setCat('all'); setQ(''); }}
+            >
+              {t('disc.market.empty_reset', 'Show all parts')}
+            </button>
+          </div>
+        ) : (
+          <div className="grid grid-cols-2 gap-3 pb-2">
+            {filtered.map((row) => (
             <button
               key={row.key}
               type="button"
@@ -126,8 +173,9 @@ export function B2cMarketplace() {
                 <ProtoIcon name="chevron-right" className="w-3.5 h-3.5 text-slate-400" aria-hidden />
               </div>
             </button>
-          ))}
-        </div>
+            ))}
+          </div>
+        )}
       </div>
       <B2cTabBar active="market" />
       <ProtoHomeIndicator />

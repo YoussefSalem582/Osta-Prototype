@@ -55,6 +55,8 @@ export const STRINGS_AR_EG = {
   'a11y.notifications': 'الإشعارات، 3 غير مقروءة',
   'a11y.more': 'خيارات أكثر',
   'a11y.close': 'إغلاق',
+  'a11y.pwd_show': 'إظهار كلمة المرور',
+  'a11y.pwd_hide': 'إخفاء كلمة المرور',
   'a11y.splash.continue': 'متابعة',
   'a11y.theme_toggle': 'تبديل الوضع الفاتح أو الداكن',
   'common.continue': 'متابعة',
@@ -318,6 +320,11 @@ export const STRINGS_AR_EG = {
   'disc.market.see_all': 'عرض الكل',
   'disc.market.view_details': 'التفاصيل',
   'disc.market.popular': 'الأكثر مبيعًا الأسبوع ده',
+  'disc.market.results': 'نتيجة',
+  'disc.market.clear': 'مسح',
+  'disc.market.empty_title': 'مفيش قطع في القسم ده',
+  'disc.market.empty_sub': 'جرّب قسم تاني أو امسح البحث.',
+  'disc.market.empty_reset': 'اعرض كل القطع',
 
   'a11y.market.search': 'ابحث عن القطع والإكسسوارات',
   'a11y.market.cart': 'سلة التسوق',
@@ -1093,6 +1100,7 @@ export const STRINGS_AR_EG = {
 
   'demo.status.time': '9:41',
   'demo.input.password_masked': '••••••••••',
+  'demo.input.password_sample': 'CarCare#2024',
   'demo.funnel.email_sample': 'you@example.com',
   'demo.funnel.email_b2b': 'omar@autopro.eg',
   'demo.funnel.owner_b2b': 'عمر صالح',

@@ -1,8 +1,11 @@
 import type { MarketListingKey } from '../../../context/ProtoContext';
 
 /** Shared demo listings for marketplace grid + part detail PDP. */
+export type MarketCategory = 'filters' | 'oil' | 'batteries' | 'tires' | 'brakes';
+
 export type MarketListingRow = {
   key: MarketListingKey;
+  category: MarketCategory;
   titleKey: string;
   titleEn: string;
   priceKey: string;
@@ -28,6 +31,7 @@ export type MarketListingRow = {
 export const MARKETPLACE_ROWS: MarketListingRow[] = [
   {
     key: 'p1',
+    category: 'filters',
     titleKey: 'demo.market.p1_title',
     titleEn: 'Bosch cabin filter',
     priceKey: 'demo.market.p1_price',
@@ -51,6 +55,7 @@ export const MARKETPLACE_ROWS: MarketListingRow[] = [
   },
   {
     key: 'p2',
+    category: 'tires',
     titleKey: 'demo.market.p2_title',
     titleEn: 'Michelin 205/55 R16',
     priceKey: 'demo.market.p2_price',
@@ -74,6 +79,7 @@ export const MARKETPLACE_ROWS: MarketListingRow[] = [
   },
   {
     key: 'p3',
+    category: 'batteries',
     titleKey: 'demo.market.p3_title',
     titleEn: 'AGM battery 60Ah',
     priceKey: 'demo.market.p3_price',
@@ -97,6 +103,7 @@ export const MARKETPLACE_ROWS: MarketListingRow[] = [
   },
   {
     key: 'p4',
+    category: 'oil',
     titleKey: 'demo.market.p4_title',
     titleEn: 'Castrol 5W-30 (4L)',
     priceKey: 'demo.market.p4_price',

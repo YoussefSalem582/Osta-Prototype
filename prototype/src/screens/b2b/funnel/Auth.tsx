@@ -1,6 +1,7 @@
 import { ProtoFunnelProgress, ProtoHomeIndicator, ProtoStatusBar } from '../../../components/proto/Chrome';
 import { BrandLogo } from '../../../components/proto/BrandLogo';
 import { ProtoIcon } from '../../../components/proto/Icon';
+import { ProtoPasswordField } from '../../../components/proto/PasswordField';
 import { useProto } from '../../../context/ProtoContext';
 import { ScreenWrap } from '../../shared/ScreenWrap';
 
@@ -87,7 +88,7 @@ export function B2bLogin() {
               <label className="label mb-2 block" htmlFor="b2b-login-password">
                 {t('common.password', 'Password')}
               </label>
-              <input id="b2b-login-password" type="password" className="proto-input px-3.5 py-3.5 text-sm" defaultValue={t('demo.input.password_masked', '••••••••••')} autoComplete="current-password" />
+              <ProtoPasswordField id="b2b-login-password" defaultValue={t('demo.input.password_sample', 'CarCare#2024')} autoComplete="current-password" />
             </div>
             <button type="button" className="text-right text-xs font-semibold text-teal-700 dark:text-teal-400 tap w-full" style={{ marginTop: -6 }}>
               {t('b2c.login.forgot', 'Forgot password?')}
@@ -173,13 +174,13 @@ export function B2bSignup() {
               <label className="label mb-1.5 block" htmlFor="b2b-signup-password">
                 {t('common.password', 'Password')}
               </label>
-              <input id="b2b-signup-password" type="password" className="proto-input w-full px-3.5 py-2.5 text-sm" defaultValue={t('demo.input.password_masked', '••••••••••')} autoComplete="new-password" />
+              <ProtoPasswordField id="b2b-signup-password" defaultValue={t('demo.input.password_sample', 'CarCare#2024')} autoComplete="new-password" />
             </div>
             <div>
               <label className="label mb-1.5 block" htmlFor="b2b-signup-password2">
                 {t('b2c.register.confirm', 'Confirm password')}
               </label>
-              <input id="b2b-signup-password2" type="password" className="proto-input w-full px-3.5 py-2.5 text-sm" defaultValue={t('demo.input.password_masked', '••••••••••')} autoComplete="new-password" />
+              <ProtoPasswordField id="b2b-signup-password2" defaultValue={t('demo.input.password_sample', 'CarCare#2024')} autoComplete="new-password" />
             </div>
           </div>
           <button type="button" className="btn-primary btn-primary-lg w-full mt-5 tap" onClick={() => show('b2b-onboard-1')}>
