@@ -199,7 +199,8 @@ export function B2cCardetail() {
 
   const detailRow = histDetail !== null ? histItems[histDetail] : null;
   const rtl = locale === 'ar-EG';
-  const flipChevron = rtl ? '[transform:scaleX(-1)]' : '';
+  // Directional chevrons mirror globally in RTL via the .lucide-chevron-* rule
+  // in prototype.css — no per-icon workaround needed here.
 
   return (
     <ScreenWrap id="b2c-cardetail">
@@ -285,7 +286,7 @@ export function B2cCardetail() {
               <div className="text-xs text-slate-600 dark:text-slate-400 mt-1 leading-relaxed">{t('acct.card.oil_sub', 'Based on your last change on 8 Feb')}</div>
             </div>
             <div className="flex flex-col items-end shrink-0 gap-1 pt-0.5">
-              <ProtoIcon name="chevron-right" className={`w-5 h-5 text-orange-600/85 dark:text-orange-400 ${flipChevron}`} aria-hidden />
+              <ProtoIcon name="chevron-right" className="w-5 h-5 text-orange-600/85 dark:text-orange-400" aria-hidden />
               <span className="text-[11px] font-bold text-orange-800 dark:text-orange-300 whitespace-nowrap">{t('acct.card.reminder_cta', 'Schedule')}</span>
             </div>
           </button>
@@ -331,7 +332,7 @@ export function B2cCardetail() {
                     </div>
                     <div className="flex flex-col items-end justify-between shrink-0 gap-2 pt-0.5">
                       <span className="text-lg font-bold tabular-nums text-slate-900 dark:text-slate-100 leading-none">{row.price}</span>
-                      <ProtoIcon name="chevron-right" className={`w-5 h-5 text-slate-300 dark:text-slate-600 ${flipChevron}`} aria-hidden />
+                      <ProtoIcon name="chevron-right" className="w-5 h-5 text-slate-300 dark:text-slate-600" aria-hidden />
                     </div>
                   </div>
                 </button>

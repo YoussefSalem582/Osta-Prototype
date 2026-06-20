@@ -132,12 +132,12 @@ export function B2cProgress() {
     <ScreenWrap id="b2c-progress">
       <ProtoStatusBar />
       <div className="screen-topbar">
-        <button type="button" className="funnel-back tap -ml-1" onClick={() => show('b2c-bookings')}>
-          <ProtoIcon name="arrow-left" className="w-5 h-5" />
+        <button type="button" className="funnel-back tap -ms-1" onClick={() => show('b2c-bookings')} aria-label={t('a11y.back', 'Back')}>
+          <ProtoIcon name="arrow-left" className="w-5 h-5" aria-hidden />
         </button>
         <div className="font-semibold text-slate-900 dark:text-slate-100">{t('book.detail.title', 'Booking')}</div>
-        <button type="button" className="tap w-10 h-10 flex items-center justify-center rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800/80">
-          <ProtoIcon name="more-horizontal" className="w-5 h-5" />
+        <button type="button" className="tap w-10 h-10 flex items-center justify-center rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800/80" aria-label={t('a11y.more', 'More options')}>
+          <ProtoIcon name="more-horizontal" className="w-5 h-5" aria-hidden />
         </button>
       </div>
       <div className="flex-1 app-surface overflow-y-auto px-5 pt-4 min-h-0">
@@ -149,7 +149,7 @@ export function B2cProgress() {
         <div className="label mt-5 mb-2">{t('book.progress.timeline', 'Timeline')}</div>
         <div className="space-y-3">
           {steps.map(([rowTitle, time, done], i) => (
-            <div key={rowTitle} className="flex gap-3">
+            <div key={rowTitle} className="flex gap-3" aria-current={done === 'active' ? 'step' : undefined}>
               <div className="flex flex-col items-center">
                 <div
                   className={`w-6 h-6 rounded-full ${
@@ -233,8 +233,8 @@ export function B2cReview() {
     <ScreenWrap id="b2c-review">
       <ProtoStatusBar />
       <div className="screen-topbar">
-        <button type="button" className="funnel-back tap -ml-1" onClick={() => show('b2c-bookings')}>
-          <ProtoIcon name="x" className="w-5 h-5" />
+        <button type="button" className="funnel-back tap -ms-1" onClick={() => show('b2c-bookings')} aria-label={t('a11y.close', 'Close')}>
+          <ProtoIcon name="x" className="w-5 h-5" aria-hidden />
         </button>
         <div className="font-semibold text-slate-900 dark:text-slate-100">{t('book.review.title', 'Rate your service')}</div>
         <div className="w-10" />

@@ -36,22 +36,27 @@ export function B2cTabBar({ active }: { active: string }) {
 }
 
 export function B2bTopbarMobile({ title }: { title: string }) {
+  const { t } = useProto();
   return (
     <div className="b2b-topbar h-12 flex items-center px-4 justify-between flex-shrink-0">
       <div className="font-semibold text-sm truncate max-w-[200px] text-slate-900 dark:text-slate-100">{title}</div>
       <div className="flex items-center gap-1">
         <button
           type="button"
-          className="w-9 h-9 rounded-xl border border-slate-200 dark:border-slate-600 flex items-center justify-center tap"
+          className="w-10 h-10 rounded-xl border border-slate-200 dark:border-slate-600 flex items-center justify-center tap"
+          aria-label={t('a11y.search', 'Search')}
         >
-          <ProtoIcon name="search" className="w-4 h-4 text-slate-500 dark:text-slate-400" />
+          <ProtoIcon name="search" className="w-4 h-4 text-slate-500 dark:text-slate-400" aria-hidden />
         </button>
-        <div className="relative w-9 h-9 flex items-center justify-center tap">
-          <ProtoIcon name="bell" className="w-5 h-5 text-slate-500 dark:text-slate-400" />
-          <span className="absolute top-0.5 right-0.5 w-3.5 h-3.5 rounded-full bg-red-500 text-white text-[8px] font-bold flex items-center justify-center">
+        <button type="button" className="relative w-10 h-10 rounded-xl flex items-center justify-center tap" aria-label={t('a11y.notifications', 'Notifications, 3 unread')}>
+          <ProtoIcon name="bell" className="w-5 h-5 text-slate-500 dark:text-slate-400" aria-hidden />
+          <span
+            className="absolute top-1 end-1 w-3.5 h-3.5 rounded-full bg-red-500 text-white text-[8px] font-bold flex items-center justify-center"
+            aria-hidden
+          >
             3
           </span>
-        </div>
+        </button>
       </div>
     </div>
   );

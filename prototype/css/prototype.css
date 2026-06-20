@@ -28,6 +28,7 @@
   --frame-border: #0F172A;
   --hairline: rgba(226, 232, 240, 0.95);
   --shadow-ink: rgba(15, 23, 42, 0.07);
+  --focus-ring: rgba(15, 118, 110, 0.55);
 }
 
 [data-theme="dark"] {
@@ -60,6 +61,7 @@
   --frame-border: #334155;
   --hairline: rgba(51, 65, 85, 0.9);
   --shadow-ink: rgba(0, 0, 0, 0.35);
+  --focus-ring: rgba(45, 212, 191, 0.75);
 }
 
 html {
@@ -110,6 +112,21 @@ html[lang="ar-EG"] body, html[lang="ar-EG"] { font-family: 'Noto Sans Arabic', '
 @keyframes screenEnter {
   from { opacity: 0.88; transform: translateY(6px); }
   to { opacity: 1; transform: translateY(0); }
+}
+
+/* —— Reduced-motion: respect the OS/browser setting (WCAG 2.3.3) ——
+   Neutralizes the screen-enter transition, the infinite map/tow/skeleton
+   loops, and every press/hover transform added below, with no per-component
+   opt-in needed. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 .funnel-hero-b2c {
   position: relative;
@@ -192,7 +209,11 @@ html[lang="ar-EG"] body, html[lang="ar-EG"] { font-family: 'Noto Sans Arabic', '
 .funnel-progress-fill {
   height: 100%;
   background: var(--brand);
-  border-radius: 0 2px 2px 0;
+  /* Round only the leading (inline-end) edge so it mirrors correctly in RTL. */
+  border-start-start-radius: 0;
+  border-end-start-radius: 0;
+  border-start-end-radius: 2px;
+  border-end-end-radius: 2px;
   transition: width 0.28s ease;
 }
 .screen[data-screen="b2b-splash"] .status-bar { color: rgba(255, 255, 255, 0.92); }
@@ -232,8 +253,8 @@ html[lang="ar-EG"] body, html[lang="ar-EG"] { font-family: 'Noto Sans Arabic', '
   backdrop-filter: none;
 }
 .funnel-back {
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -562,11 +583,24 @@ html[lang="ar-EG"] body, html[lang="ar-EG"] { font-family: 'Noto Sans Arabic', '
 }
 .proto-input:hover { border-color: #cbd5e1; }
 .proto-input:focus-visible {
-  outline: 2px solid rgba(15, 118, 110, 0.45);
+  outline: 2px solid var(--focus-ring);
   outline-offset: 0;
   border-color: var(--brand);
 }
-button:focus-visible { outline: 2px solid rgba(15, 118, 110, 0.5); outline-offset: 2px; }
+/* Latin / numeric values stay LTR even under Arabic RTL so emails, phone
+   numbers, URLs and prices don't get bidi-reordered. text-align:start keeps
+   them hugging the inline-start edge. */
+.proto-input[type="email"],
+.proto-input[type="tel"],
+.proto-input[type="url"],
+.proto-input[type="number"],
+.proto-input[inputmode="numeric"],
+.proto-input[inputmode="decimal"],
+.proto-input[inputmode="tel"] {
+  direction: ltr;
+  text-align: start;
+}
+button:focus-visible { outline: 2px solid var(--focus-ring); outline-offset: 2px; }
 
 /* —— Post-auth app shell & accents —— */
 .app-surface {
@@ -803,8 +837,10 @@ button:focus-visible { outline: 2px solid rgba(15, 118, 110, 0.5); outline-offse
 .screen-group-label { letter-spacing: 0.06em; color: var(--muted); }
 .status-bar { height: 44px; padding: 12px 22px 0; display: flex; justify-content: space-between; align-items: center; font-size: 14px; font-weight: 600; color: var(--ink); }
 .home-indicator { position: absolute; bottom: 8px; left: 50%; transform: translateX(-50%); width: 130px; height: 5px; background: var(--frame-border); border-radius: 3px; z-index: 50; }
-.tap { cursor: pointer; transition: all .15s ease; }
+.tap { cursor: pointer; transition: transform .12s ease, filter .15s ease, background-color .15s ease, border-color .15s ease, box-shadow .15s ease; }
 .tap:hover { filter: brightness(.97); }
+.tap:active { transform: scale(.985); filter: brightness(.95); }
+.tap:focus-visible { outline: 2px solid var(--focus-ring); outline-offset: 2px; }
 .pin { width: 38px; height: 38px; border-radius: 50% 50% 50% 0; transform: rotate(-45deg); display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 10px rgba(15,23,42,.35); border: 2px solid white; }
 .pin > * { transform: rotate(45deg); }
 .skeleton { background: linear-gradient(90deg, #F1F5F9 25%, #E2E8F0 50%, #F1F5F9 75%); background-size: 200% 100%; animation: shimmer 1.4s infinite; }
@@ -1113,13 +1149,25 @@ button:focus-visible { outline: 2px solid rgba(15, 118, 110, 0.5); outline-offse
   font-size: 12px;
   box-shadow: 0 1px 2px rgba(15,23,42,.04);
 }
+.btn-secondary { transition: background-color .15s ease, transform .12s ease, filter .15s ease, box-shadow .15s ease; }
 .btn-secondary:hover { background: #F8FAFC; }
+.btn-secondary:active { transform: scale(.98); filter: brightness(.97); }
 .chip { display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 999px; background: #fff; border: 1px solid #E2E8F0; font-size: 12px; font-weight: 500; color: var(--ink); box-shadow: 0 2px 6px rgba(15,23,42,.06); }
 .chip.on { background: var(--brand); color: #fff; border-color: var(--brand); }
-.btn-primary { background: var(--brand); color: #fff; font-weight: 600; border-radius: 14px; padding: 14px 16px; display: flex; align-items: center; justify-content: center; gap: 8px; }
+.btn-primary { background: var(--brand); color: #fff; font-weight: 600; border-radius: 14px; padding: 14px 16px; display: flex; align-items: center; justify-content: center; gap: 8px; transition: background-color .15s ease, transform .12s ease, filter .15s ease, box-shadow .15s ease; }
 .btn-primary:hover { background: var(--brand-dark); }
-.btn-accent { background: var(--accent); color: #fff; font-weight: 600; border-radius: 14px; padding: 14px 16px; }
-.btn-ghost { background: #F1F5F9; color: var(--ink); font-weight: 600; border-radius: 14px; padding: 14px 16px; }
+.btn-accent { background: var(--accent); color: #fff; font-weight: 600; border-radius: 14px; padding: 14px 16px; transition: background-color .15s ease, transform .12s ease, filter .15s ease, box-shadow .15s ease; }
+.btn-ghost { background: #F1F5F9; color: var(--ink); font-weight: 600; border-radius: 14px; padding: 14px 16px; transition: background-color .15s ease, transform .12s ease, filter .15s ease, box-shadow .15s ease; }
+.btn-primary:active, .btn-accent:active, .btn-ghost:active { transform: scale(.98); filter: brightness(.96); }
+/* Large CTA variant — used on the primary action of ~19 screens. Previously
+   undefined, so every hero CTA silently fell back to base size. */
+.btn-primary-lg, .btn-accent-lg, .btn-ghost-lg {
+  width: 100%;
+  padding: 15px 20px;
+  font-size: 16px;
+  border-radius: 16px;
+  min-height: 52px;
+}
 .sheet { position: absolute; left: 0; right: 0; bottom: 0; background: #fff; border-radius: 24px 24px 0 0; box-shadow: 0 -8px 24px rgba(15,23,42,.12); }
 .tab-bar {
   min-height: 82px;
@@ -1862,9 +1910,14 @@ details summary::-webkit-details-marker { display: none; }
 }
 
 /* —— RTL —— */
-[dir="rtl"] .phone-frame .funnel-back i,
-[dir="rtl"] .phone-frame [data-lucide="arrow-left"],
-[dir="rtl"] .phone-frame [data-lucide="arrow-right"] {
+/* Mirror directional glyphs in Arabic. lucide-react renders
+   <svg class="lucide lucide-arrow-left …"> (no data-lucide attr, no <i>), so
+   we target the real emitted classes. Opt OUT non-directional or
+   already-correct icons by adding `rtl-keep` on the icon. */
+[dir="rtl"] .phone-frame .lucide-arrow-left:not(.rtl-keep),
+[dir="rtl"] .phone-frame .lucide-arrow-right:not(.rtl-keep),
+[dir="rtl"] .phone-frame .lucide-chevron-left:not(.rtl-keep),
+[dir="rtl"] .phone-frame .lucide-chevron-right:not(.rtl-keep) {
   transform: scaleX(-1);
 }
 [dir="rtl"] .chip-scroll-row {

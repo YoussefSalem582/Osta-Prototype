@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { B2cTabBar } from '../../../components/proto/TabBars';
 import { ProtoHomeIndicator, ProtoStatusBar } from '../../../components/proto/Chrome';
 import { ProtoIcon } from '../../../components/proto/Icon';
@@ -146,15 +147,48 @@ export function B2cFilters() {
     t('disc.filters.svc.body', 'Body & paint'),
     t('disc.filters.svc.elec', 'Electrical'),
   ];
+  const distances = [
+    t('demo.filters.dist_1', '1 km'),
+    t('demo.filters.dist_5', '5 km'),
+    t('demo.filters.dist_10', '10 km'),
+    t('demo.filters.dist_25', '25 km'),
+  ];
+  const optionDefs: [string, boolean][] = [
+    [t('disc.filters.opt.open', 'Open now'), true],
+    [t('disc.filters.opt.verified', 'Verified only'), true],
+    [t('disc.filters.opt.female', 'Female-friendly staff'), false],
+    [t('disc.filters.opt.pickup', 'Home pickup available'), false],
+    [t('disc.filters.opt.card', 'Accepts card'), true],
+  ];
+  const ratings = [3, 3.5, 4, 4.5];
+  const [svc, setSvc] = useState<Set<string>>(() => new Set([services[0], services[1]]));
+  const [rating, setRating] = useState(4);
+  const [dist, setDist] = useState(1);
+  const [opts, setOpts] = useState<Record<string, boolean>>(() =>
+    Object.fromEntries(optionDefs.map(([label, on]) => [label, on])),
+  );
+  const resetAll = () => {
+    setSvc(new Set([services[0], services[1]]));
+    setRating(4);
+    setDist(1);
+    setOpts(Object.fromEntries(optionDefs.map(([label, on]) => [label, on])));
+  };
+  const toggleSvc = (s: string) =>
+    setSvc((prev) => {
+      const next = new Set(prev);
+      if (next.has(s)) next.delete(s);
+      else next.add(s);
+      return next;
+    });
   return (
     <ScreenWrap id="b2c-filters">
       <ProtoStatusBar />
       <div className="screen-topbar">
-        <button type="button" className="funnel-back tap -ml-1" onClick={() => show('b2c-map')} aria-label={t('disc.filters.close', 'Close')}>
-          <ProtoIcon name="x" className="w-5 h-5" />
+        <button type="button" className="funnel-back tap -ms-1" onClick={() => show('b2c-map')} aria-label={t('disc.filters.close', 'Close')}>
+          <ProtoIcon name="x" className="w-5 h-5" aria-hidden />
         </button>
         <div className="font-semibold text-slate-900 dark:text-slate-100">{t('disc.filters.title', 'Filters')}</div>
-        <button type="button" className="text-sm text-teal-700 dark:text-teal-400 font-semibold tap py-2 px-1">
+        <button type="button" className="text-sm text-teal-700 dark:text-teal-400 font-semibold tap py-2 px-1 rounded-lg" onClick={resetAll}>
           {t('disc.filters.reset', 'Reset')}
         </button>
       </div>
@@ -162,11 +196,14 @@ export function B2cFilters() {
         <div className="filters-section">
           <div className="label mb-2 text-indigo-700 dark:text-indigo-300">{t('disc.filters.service', 'Service')}</div>
           <div className="flex flex-wrap gap-2">
-            {services.map((s, i) => (
-              <span key={s} className={`chip ${i < 2 ? 'on' : ''}`}>
-                {s}
-              </span>
-            ))}
+            {services.map((s) => {
+              const on = svc.has(s);
+              return (
+                <button key={s} type="button" aria-pressed={on} className={`chip tap ${on ? 'on' : ''}`} onClick={() => toggleSvc(s)}>
+                  {s}
+                </button>
+              );
+            })}
           </div>
         </div>
         <div className="filters-section">
@@ -176,66 +213,70 @@ export function B2cFilters() {
               {t('demo.filters.price_chip', 'EGP 200–1500')}
             </div>
           </div>
-          <div className="h-1.5 rounded-full bg-slate-200 dark:bg-slate-700 relative">
-            <div className="absolute h-1.5 rounded-full bg-gradient-to-r from-teal-500 to-cyan-500" style={{ left: '10%', right: '30%' }} />
+          <div className="h-1.5 rounded-full bg-slate-200 dark:bg-slate-700 relative" aria-hidden>
+            <div className="absolute h-1.5 rounded-full bg-gradient-to-r from-teal-500 to-cyan-500" style={{ insetInlineStart: '10%', insetInlineEnd: '30%' }} />
             <div
               className="absolute w-4 h-4 bg-white dark:bg-slate-900 border-2 border-teal-600 rounded-full -top-1 shadow-sm"
-              style={{ left: '9%' }}
+              style={{ insetInlineStart: '9%' }}
             />
             <div
               className="absolute w-4 h-4 bg-white dark:bg-slate-900 border-2 border-cyan-600 rounded-full -top-1 shadow-sm"
-              style={{ left: '68%' }}
+              style={{ insetInlineStart: '68%' }}
             />
           </div>
         </div>
         <div className="filters-section">
           <div className="label mb-2 text-amber-800 dark:text-amber-300">{t('disc.filters.rating', 'Minimum rating')}</div>
           <div className="flex gap-2 flex-wrap">
-            {[3, 3.5, 4, 4.5].map((r, i) => (
-              <span key={r} className={`chip ${i === 2 ? 'on' : ''}`}>
-                <ProtoIcon name="star" className={`w-3 h-3 ${i === 2 ? '' : 'text-amber-500 fill-amber-500'}`} />
-                {r}+
-              </span>
-            ))}
+            {ratings.map((r) => {
+              const on = rating === r;
+              return (
+                <button key={r} type="button" aria-pressed={on} className={`chip tap ${on ? 'on' : ''}`} onClick={() => setRating(r)}>
+                  <ProtoIcon name="star" className={`w-3 h-3 ${on ? '' : 'text-amber-500 fill-amber-500'}`} aria-hidden />
+                  {r}+
+                </button>
+              );
+            })}
           </div>
         </div>
         <div className="filters-section">
           <div className="label mb-2 text-violet-800 dark:text-violet-300">{t('disc.filters.distance', 'Distance')}</div>
           <div className="flex gap-2 flex-wrap">
-            {[
-              t('demo.filters.dist_1', '1 km'),
-              t('demo.filters.dist_5', '5 km'),
-              t('demo.filters.dist_10', '10 km'),
-              t('demo.filters.dist_25', '25 km'),
-            ].map((d, i) => (
-              <span key={d} className={`chip ${i === 1 ? 'on' : ''}`}>
-                {d}
-              </span>
-            ))}
+            {distances.map((d, i) => {
+              const on = dist === i;
+              return (
+                <button key={d} type="button" aria-pressed={on} className={`chip tap ${on ? 'on' : ''}`} onClick={() => setDist(i)}>
+                  {d}
+                </button>
+              );
+            })}
           </div>
         </div>
         <div className="filters-section space-y-3">
           <div className="label text-slate-600 dark:text-slate-400">{t('disc.filters.options', 'Options')}</div>
-          {(
-            [
-              [t('disc.filters.opt.open', 'Open now'), true],
-              [t('disc.filters.opt.verified', 'Verified only'), true],
-              [t('disc.filters.opt.female', 'Female-friendly staff'), false],
-              [t('disc.filters.opt.pickup', 'Home pickup available'), false],
-              [t('disc.filters.opt.card', 'Accepts card'), true],
-            ] as const
-          ).map(([label, on]) => (
-            <div key={label} className="flex justify-between items-center py-0.5">
-              <div className="text-sm font-medium text-slate-800 dark:text-slate-200">{label}</div>
-              <div
-                className={`w-10 h-6 rounded-full ${on ? 'bg-gradient-to-r from-teal-600 to-emerald-500' : 'bg-slate-200 dark:bg-slate-600'} relative transition-colors`}
+          {optionDefs.map(([label]) => {
+            const on = opts[label];
+            return (
+              <button
+                key={label}
+                type="button"
+                role="switch"
+                aria-checked={on}
+                className="flex justify-between items-center py-1 w-full text-start rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500/70 focus-visible:ring-offset-2"
+                onClick={() => setOpts((p) => ({ ...p, [label]: !p[label] }))}
               >
-                <div
-                  className={`absolute top-0.5 ${on ? 'right-0.5' : 'left-0.5'} w-5 h-5 rounded-full bg-white dark:bg-slate-900 shadow-md`}
-                />
-              </div>
-            </div>
-          ))}
+                <span className="text-sm font-medium text-slate-800 dark:text-slate-200">{label}</span>
+                <span
+                  className={`w-10 h-6 rounded-full shrink-0 ${on ? 'bg-gradient-to-r from-teal-600 to-emerald-500' : 'bg-slate-200 dark:bg-slate-600'} relative transition-colors`}
+                  aria-hidden
+                >
+                  <span
+                    className={`absolute top-0.5 ${on ? 'end-0.5' : 'start-0.5'} w-5 h-5 rounded-full bg-white dark:bg-slate-900 shadow-md transition-all`}
+                  />
+                </span>
+              </button>
+            );
+          })}
         </div>
       </div>
       <div className="cta-bar">
@@ -345,17 +386,15 @@ export function B2cSearch() {
       </div>
       <div className="flex-1 overflow-y-auto px-4 pb-4 space-y-3 app-surface min-h-0">
         {list.map(([n, d, r, c, p, v, next, state], idx) => (
-          <div
+          <button
             key={n}
-            className={`listing-card tap p-3.5 rounded-2xl border ${
+            type="button"
+            className={`listing-card tap w-full text-start p-3.5 rounded-2xl border ${
               idx === 0
                 ? 'border-2 border-teal-300/80 dark:border-teal-600/60 bg-gradient-to-br from-teal-50 to-white dark:from-teal-950/40 dark:to-slate-900 shadow-sm'
                 : 'border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-900 shadow-sm'
             }`}
             onClick={() => show(state === 'Tow' ? 'b2c-tow' : 'b2c-shop')}
-            onKeyDown={(e) => e.key === 'Enter' && show(state === 'Tow' ? 'b2c-tow' : 'b2c-shop')}
-            role="button"
-            tabIndex={0}
           >
             <div className="flex gap-3">
               <div
@@ -401,7 +440,7 @@ export function B2cSearch() {
                 </div>
               </div>
             </div>
-          </div>
+          </button>
         ))}
       </div>
       <ProtoHomeIndicator />

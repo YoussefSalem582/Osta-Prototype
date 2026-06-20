@@ -164,13 +164,13 @@ export function B2bCatalog() {
 
         <div className="px-3 pt-2">
           <div className="relative">
-            <ProtoIcon name="search" className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" aria-hidden />
+            <ProtoIcon name="search" className="pointer-events-none absolute start-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" aria-hidden />
             <input
               type="search"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder={t('b2b.cat.search_ph', 'Search services…')}
-              className="proto-input w-full rounded-xl py-2.5 pl-9 pr-3 text-sm"
+              className="proto-input w-full rounded-xl py-2.5 ps-9 pe-3 text-sm"
               aria-label={t('b2b.cat.search_ph', 'Search services…')}
               autoCapitalize="off"
               autoCorrect="off"

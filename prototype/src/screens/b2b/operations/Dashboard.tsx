@@ -116,12 +116,10 @@ export function B2bDashboard() {
               const isOpen = openLine === rowKey;
               return (
               <div key={time + cust} className="mb-2 last:mb-0">
-                <div
-                  className="tap rounded-xl border border-slate-100 bg-gradient-to-r from-white to-slate-50/80 p-2.5 dark:border-slate-600/90 dark:from-slate-900 dark:to-slate-800/95 hover:border-teal-200/60 dark:hover:border-teal-500/35"
+                <button
+                  type="button"
+                  className="tap w-full text-start rounded-xl border border-slate-100 bg-gradient-to-r from-white to-slate-50/80 p-2.5 dark:border-slate-600/90 dark:from-slate-900 dark:to-slate-800/95 hover:border-teal-200/60 dark:hover:border-teal-500/35"
                   onClick={act ? () => show('b2b-booking') : undefined}
-                  onKeyDown={act ? (e) => e.key === 'Enter' && show('b2b-booking') : undefined}
-                  role={act ? 'button' : undefined}
-                  tabIndex={act ? 0 : undefined}
                 >
                   <div className="flex items-center justify-between gap-2">
                     <div>
@@ -131,7 +129,7 @@ export function B2bDashboard() {
                     </div>
                     <span className={`badge ${badge} text-[10px]`}>{lineupStatus(label)}</span>
                   </div>
-                </div>
+                </button>
                 <div className="mt-1 flex gap-1.5 px-1">
                   <button
                     type="button"
@@ -206,7 +204,14 @@ export function B2bDashboard() {
                     )}
                   </span>
                 </div>
-                <div className="mt-1 h-1.5 overflow-hidden rounded-full bg-slate-100 dark:bg-slate-800/80">
+                <div
+                  className="mt-1 h-1.5 overflow-hidden rounded-full bg-slate-100 dark:bg-slate-800/80"
+                  role="progressbar"
+                  aria-valuenow={b}
+                  aria-valuemin={0}
+                  aria-valuemax={cap}
+                  aria-label={`${n}: ${b}/${cap}`}
+                >
                   <div className={`h-full transition-all duration-300 ${mechFocus === ix ? 'bg-teal-500' : 'bg-teal-600'}`} style={{ width: `${(b / cap) * 100}%` }} />
                 </div>
               </button>
@@ -214,9 +219,13 @@ export function B2bDashboard() {
           </div>
           <div className="rounded-xl p-3 text-xs bg-gradient-to-r from-amber-50 to-orange-50 dark:from-amber-950/40 dark:to-orange-950/35 border border-amber-200/70 dark:border-amber-800/50 shadow-sm text-amber-950 dark:text-amber-100">
             {t('demo.b2b.rev_need_banner_n', '3')} {t('b2b.dash.rev_banner', 'reviews')} {t('b2b.dash.rev_need', 'need a reply.')}{' '}
-            <span className="text-teal-800 dark:text-teal-300 font-semibold tap" onClick={() => show('b2b-reviews')}>
+            <button
+              type="button"
+              className="text-teal-800 dark:text-teal-300 font-semibold tap rounded underline-offset-2 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500/70"
+              onClick={() => show('b2b-reviews')}
+            >
               {t('b2b.dash.open', 'Open')}
-            </span>
+            </button>
           </div>
         </div>
       </div>

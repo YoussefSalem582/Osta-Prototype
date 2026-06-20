@@ -43,20 +43,29 @@ export function B2cShop() {
           </div>
           <button
             type="button"
-            className="absolute top-12 left-4 w-9 h-9 rounded-full bg-white dark:bg-slate-900/90 text-slate-800 dark:text-slate-200 flex items-center justify-center tap"
+            className="absolute top-12 start-4 w-10 h-10 rounded-full bg-white dark:bg-slate-900/90 text-slate-800 dark:text-slate-200 flex items-center justify-center tap shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500/80 focus-visible:ring-offset-2"
             onClick={() => show('b2c-map')}
+            aria-label={t('a11y.back', 'Back')}
           >
-            <ProtoIcon name="arrow-left" className="w-4 h-4" />
+            <ProtoIcon name="arrow-left" className="w-4 h-4" aria-hidden />
           </button>
-          <div className="absolute top-12 right-4 flex gap-2">
-            <div className="w-9 h-9 rounded-full bg-white dark:bg-slate-900/90 text-slate-800 dark:text-slate-200 flex items-center justify-center tap">
-              <ProtoIcon name="share-2" className="w-4 h-4" />
-            </div>
-            <div className="w-9 h-9 rounded-full bg-white dark:bg-slate-900/90 text-slate-800 dark:text-slate-200 flex items-center justify-center tap">
-              <ProtoIcon name="heart" className="w-4 h-4" />
-            </div>
+          <div className="absolute top-12 end-4 flex gap-2">
+            <button
+              type="button"
+              className="w-10 h-10 rounded-full bg-white dark:bg-slate-900/90 text-slate-800 dark:text-slate-200 flex items-center justify-center tap shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500/80 focus-visible:ring-offset-2"
+              aria-label={t('a11y.share', 'Share')}
+            >
+              <ProtoIcon name="share-2" className="w-4 h-4" aria-hidden />
+            </button>
+            <button
+              type="button"
+              className="w-10 h-10 rounded-full bg-white dark:bg-slate-900/90 text-slate-800 dark:text-slate-200 flex items-center justify-center tap shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500/80 focus-visible:ring-offset-2"
+              aria-label={t('a11y.save', 'Save')}
+            >
+              <ProtoIcon name="heart" className="w-4 h-4" aria-hidden />
+            </button>
           </div>
-          <div className="absolute bottom-3 right-3 bg-black/50 text-white text-xs px-2 py-0.5 rounded">{t('disc.shop.photo_idx', '1/12')}</div>
+          <div className="absolute bottom-3 end-3 bg-black/50 text-white text-xs px-2 py-0.5 rounded">{t('disc.shop.photo_idx', '1/12')}</div>
         </div>
         <div className="px-5 -mt-6 relative z-10">
           <div className="bg-white dark:bg-slate-900 rounded-2xl p-4 shadow-lg border border-slate-200 dark:border-slate-600/80 ring-1 ring-black/[0.03]">

@@ -153,13 +153,11 @@ export function B2bBookings() {
           ) : (
             <div className="space-y-2">
               {filtered.map(([time, cust, svc, badge, l]) => (
-                <div
+                <button
                   key={`${time}-${l}`}
-                  className="tap rounded-xl border border-slate-200 bg-white p-3 shadow-sm transition hover:border-teal-200 hover:shadow-md dark:border-slate-600 dark:bg-slate-900 dark:hover:border-teal-600/55"
+                  type="button"
+                  className="tap w-full text-start rounded-xl border border-slate-200 bg-white p-3 shadow-sm transition hover:border-teal-200 hover:shadow-md dark:border-slate-600 dark:bg-slate-900 dark:hover:border-teal-600/55"
                   onClick={() => show('b2b-booking')}
-                  onKeyDown={(e) => e.key === 'Enter' && show('b2b-booking')}
-                  role="button"
-                  tabIndex={0}
                 >
                   <div className="flex justify-between">
                     <div>
@@ -169,7 +167,7 @@ export function B2bBookings() {
                     </div>
                     <span className={`badge ${badge} self-start text-[10px]`}>{listStatus(l)}</span>
                   </div>
-                </div>
+                </button>
               ))}
             </div>
           )}
