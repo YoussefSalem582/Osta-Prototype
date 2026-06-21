@@ -100,7 +100,7 @@ export function B2cGarage() {
           {t('acct.garage.add', 'Add another car')}
         </button>
       </div>
-      <B2cTabBar active="garage" />
+      <B2cTabBar active="more" />
       <ProtoHomeIndicator />
     </ScreenWrap>
   );

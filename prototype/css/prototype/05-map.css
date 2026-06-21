@@ -35,6 +35,15 @@
   background: #F8FAFC;
   box-shadow: 0 0 0 1px rgba(203,213,225,.85), 0 2px 6px rgba(15,23,42,.06);
 }
+/* Pin fills — single source of truth (was inline hex in MapColumn.tsx). Kept as
+   fixed, saturated brand hues (not theme tokens) so the white glyph stays high
+   contrast on both light and dark map canvases. The .pin ring adapts per theme
+   (see 08-dark.css). */
+.pin--verified { background: #0F766E; }
+.pin--featured { background: #F97316; }
+.pin--unverified { background: #64748B; }
+.pin--tow { background: #1D4ED8; }
+.pin--tow-alt { background: #1E40AF; }
 .user-loc-dot-wrap { position: absolute; width: 20px; height: 20px; transform: translate(-50%, -50%); }
 .user-loc-dot-pulse {
   position: absolute;
@@ -66,12 +75,18 @@
 .map-search-header--mobile {
   padding: 8px 14px 0;
 }
+/* Quiet "meta" strip: a subdued dev affordance that sits ABOVE the search row
+   (hairline divider) and is visually subordinate to it — outlined chips at rest,
+   a soft brand tint when active (no solid-fill / heavy shadow). All tokenized so
+   it adapts to dark with no per-rule overrides. */
 .map-demo-toolbar {
   display: flex;
   align-items: center;
   gap: 8px;
-  min-height: 30px;
-  padding-bottom: 7px;
+  min-height: 28px;
+  padding-bottom: 8px;
+  margin-bottom: 8px;
+  border-bottom: 1px solid var(--hairline);
 }
 .map-demo-toolbar__label {
   display: inline-flex;
@@ -82,17 +97,18 @@
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: #64748b;
+  color: var(--muted);
+  opacity: 0.85;
 }
 .map-demo-toolbar__current {
   display: inline-flex;
   align-items: center;
   gap: 4px;
   max-width: 104px;
-  padding: 4px 7px;
+  padding: 3px 8px;
   overflow: hidden;
-  border-radius: 999px;
-  background: rgba(15, 118, 110, 0.1);
+  border-radius: var(--r-pill);
+  background: var(--brand-soft);
   color: var(--brand);
   letter-spacing: 0;
   text-transform: none;
@@ -113,20 +129,23 @@
   align-items: center;
   gap: 4px;
   flex-shrink: 0;
-  min-height: 26px;
-  padding: 4px 8px;
-  border: 0;
-  border-radius: 999px;
-  background: #f1f5f9;
-  color: #64748b;
+  min-height: 25px;
+  padding: 3px 9px;
+  border: 1px solid var(--hairline);
+  border-radius: var(--r-pill);
+  background: transparent;
+  color: var(--muted);
   font: inherit;
   font-size: 10.5px;
-  font-weight: 700;
+  font-weight: 600;
+  transition: background var(--dur-fast) var(--ease-standard),
+    color var(--dur-fast) var(--ease-standard),
+    border-color var(--dur-fast) var(--ease-standard);
 }
 .map-demo-toolbar__button.is-on {
-  background: var(--brand);
-  color: #fff;
-  box-shadow: 0 3px 10px rgba(15, 118, 110, 0.22);
+  background: var(--brand-soft);
+  color: var(--brand);
+  border-color: transparent;
 }
 .map-context-alert {
   display: flex;
@@ -150,16 +169,16 @@
   gap: 8px;
   flex: 1;
   min-width: 0;
-  padding: 11px 13px;
-  border: 1px solid #e2e8f0;
-  border-radius: 17px;
-  background: #fff;
-  box-shadow: 0 3px 12px rgba(15, 23, 42, 0.07);
+  padding: 12px 14px;
+  border: 1px solid var(--hairline);
+  border-radius: var(--r-xl);
+  background: var(--elevated);
+  box-shadow: var(--elevation-2);
 }
 .map-filter-button {
   width: 46px;
   height: 46px;
-  border-radius: 16px;
+  border-radius: var(--r-xl);
 }
 .chip-scroll-wrap {
   position: relative;
@@ -188,7 +207,7 @@
 .map-control-stack {
   position: absolute;
   right: 12px;
-  bottom: 274px;
+  bottom: 290px;
   z-index: 16;
   display: flex;
   flex-direction: column;
@@ -196,24 +215,30 @@
 }
 .sheet-elevated {
   border-radius: 24px 24px 0 0;
-  box-shadow: 0 -8px 32px rgba(15,23,42,.10), 0 -1px 0 rgba(255,255,255,.7) inset;
+  box-shadow: 0 -14px 32px rgba(15,23,42,.10), 0 -4px 10px rgba(15,23,42,.05),
+    0 -1px 0 rgba(255,255,255,.7) inset;
   z-index: 20;
   border-top: 1px solid var(--hairline);
 }
 .sheet-handle {
-  width: 44px;
+  width: 40px;
   height: 5px;
-  background: rgba(148,163,184,.45);
-  border-radius: 999px;
-  margin: 10px auto 0;
+  background: var(--muted);
+  opacity: 0.45;
+  border-radius: var(--r-pill);
+  margin: 9px auto 1px;
+  transition: width var(--dur-fast) var(--ease-standard),
+    opacity var(--dur-fast) var(--ease-standard);
 }
+/* The whole header zone reads as a grabbable grip. */
+.map-results-sheet:hover .sheet-handle { opacity: 0.6; width: 46px; }
 .listing-card {
   transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 .listing-card:active { transform: scale(0.99); }
 .map-results-sheet {
-  min-height: 258px;
-  max-height: 286px;
+  min-height: 272px;
+  max-height: 304px;
 }
 .map-results-sheet__header {
   display: flex;
@@ -223,7 +248,7 @@
   padding: 11px 16px 8px;
 }
 .map-results-sheet__body {
-  max-height: 190px;
+  max-height: 208px;
   overflow-y: auto;
   padding: 0 16px 12px;
   display: flex;
@@ -258,7 +283,7 @@
   min-width: 0;
   margin-top: 4px;
   overflow: hidden;
-  color: #64748b;
+  color: var(--muted);
   font-size: 12px;
   white-space: nowrap;
 }
@@ -278,17 +303,18 @@
   flex-shrink: 0;
   min-width: 58px;
   padding: 10px 12px;
-  border-radius: 13px;
+  border-radius: var(--r-md);
   font-size: 12px;
   line-height: 1;
 }
 .map-more-results {
   width: 100%;
-  padding: 10px 12px;
+  padding: 11px 12px;
   border: 1px dashed rgba(20, 184, 166, 0.35);
-  border-radius: 14px;
+  border-radius: var(--r-lg);
   background: rgba(240, 253, 250, 0.62);
   color: #0f766e;
   font-size: 12px;
   font-weight: 700;
+  transition: background var(--dur-fast) var(--ease-standard);
 }

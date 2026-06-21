@@ -93,11 +93,11 @@ export function B2cMapMainColumn() {
               <ProtoIcon name="clock" className="w-3.5 h-3.5" />
               {t('map.chip.open_now', 'Open now')}
             </span>
-            <span className="chip flex-shrink-0">
+            <span className="chip flex-shrink-0 num">
               <ProtoIcon name="star" className="w-3.5 h-3.5" />
               {t('map.chip.star', '4+ stars')}
             </span>
-            <span className="chip flex-shrink-0">
+            <span className="chip flex-shrink-0 num">
               <ProtoIcon name="map-pin" className="w-3.5 h-3.5" />
               {t('map.chip.km', '<5 km')}
             </span>
@@ -141,7 +141,7 @@ export function B2cMapMainColumn() {
         {mapScenario !== 'loading' && mapScenario !== 'empty' ? (
           <>
             <div className="absolute z-10" style={{ left: '30%', top: '24%' }}>
-              <div className="pin" style={{ background: '#0F766E' }}>
+              <div className="pin pin--verified">
                 <ProtoIcon name="badge-check" className="w-4 h-4 text-white" />
               </div>
             </div>
@@ -151,22 +151,22 @@ export function B2cMapMainColumn() {
               style={{ left: '56%', top: '36%' }}
               onClick={() => show('b2c-shop')}
             >
-              <div className="pin" style={{ background: '#F97316', transform: 'rotate(-45deg) scale(1.2)' }}>
+              <div className="pin pin--featured" style={{ transform: 'rotate(-45deg) scale(1.2)' }}>
                 <ProtoIcon name="wrench" className="w-4 h-4 text-white" />
               </div>
             </button>
             <div className="absolute z-10" style={{ left: '64%', top: '66%' }}>
-              <div className="pin" style={{ background: '#0F766E' }}>
+              <div className="pin pin--verified">
                 <ProtoIcon name="badge-check" className="w-4 h-4 text-white" />
               </div>
             </div>
             <div className="absolute z-10" style={{ left: '22%', top: '70%' }}>
-              <div className="pin" style={{ background: '#64748B' }}>
+              <div className="pin pin--unverified">
                 <ProtoIcon name="wrench" className="w-4 h-4 text-white" />
               </div>
             </div>
             <div className="absolute z-10" style={{ left: '78%', top: '18%' }}>
-              <div className="pin" style={{ background: '#0F766E' }}>
+              <div className="pin pin--verified">
                 <ProtoIcon name="badge-check" className="w-4 h-4 text-white" />
               </div>
             </div>
@@ -176,7 +176,7 @@ export function B2cMapMainColumn() {
               style={{ left: '46%', top: '68%' }}
               onClick={() => show('b2c-tow')}
             >
-              <div className="pin" style={{ background: '#1D4ED8' }}>
+              <div className="pin pin--tow">
                 <ProtoIcon name="truck" className="w-4 h-4 text-white" />
               </div>
             </button>
@@ -186,7 +186,7 @@ export function B2cMapMainColumn() {
               style={{ left: '12%', top: '38%' }}
               onClick={() => show('b2c-tow')}
             >
-              <div className="pin" style={{ background: '#1E40AF' }}>
+              <div className="pin pin--tow-alt">
                 <ProtoIcon name="truck" className="w-4 h-4 text-white" />
               </div>
             </button>
@@ -224,7 +224,7 @@ export function B2cMapMainColumn() {
           <div className="sheet-handle" />
           <div className="map-results-sheet__header">
             <div className="min-w-0">
-              <div className="text-[17px] font-bold text-slate-900 dark:text-slate-100 tracking-tight">
+              <div className="t-title text-slate-900 dark:text-slate-100">
                 {mapScenario === 'loading'
                   ? t('map.proto.loading_label', 'Loading nearby centers...')
                   : mapScenario === 'empty'
@@ -243,7 +243,7 @@ export function B2cMapMainColumn() {
               <span className="skeleton h-7 w-[4.5rem] rounded-full flex-shrink-0" aria-hidden />
             ) : (
               <span
-                className={`text-[11px] font-semibold px-2.5 py-1 rounded-full border flex-shrink-0 ${
+                className={`num text-[11px] font-semibold px-2.5 py-1 rounded-full border flex-shrink-0 ${
                   mapScenario === 'empty'
                     ? 'text-amber-900 dark:text-amber-100 bg-amber-50 dark:bg-amber-950/45 border-amber-200 dark:border-amber-800/60'
                     : 'text-teal-800 dark:text-teal-100 bg-teal-50 dark:bg-teal-950/45 border-teal-100 dark:border-teal-800/60'
@@ -274,10 +274,10 @@ export function B2cMapMainColumn() {
             ) : mapScenario === 'empty' ? (
               <div className="text-center py-7 px-2">
                 <ProtoIcon name="search-x" className="w-12 h-12 mx-auto text-slate-300 dark:text-slate-600 mb-3" aria-hidden />
-                <p className="text-sm font-semibold text-slate-800 dark:text-slate-200 mb-2">
+                <p className="t-title text-slate-800 dark:text-slate-200 mb-2">
                   {t('map.proto.no_results_title', 'No verified centers yet')}
                 </p>
-                <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed max-w-[240px] mx-auto">
+                <p className="t-callout text-slate-600 dark:text-slate-400 max-w-[240px] mx-auto">
                   {t(
                     'map.proto.no_results_body',
                     'PostGIS nearby_centers returned 0 rows for your filters - try resetting service filters or widening distance.',
@@ -303,29 +303,29 @@ export function B2cMapMainColumn() {
                   </div>
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-1.5">
-                      <span className="font-semibold text-slate-900 dark:text-slate-100 truncate">
+                      <span className="t-title text-slate-900 dark:text-slate-100 truncate">
                         {t('demo.search.r1_name', 'AutoPro Heliopolis')}
                       </span>
                       <ProtoIcon name="badge-check" className="w-4 h-4 text-teal-700 dark:text-teal-400 flex-shrink-0" />
                     </div>
                     <div className="map-listing-meta">
-                      <span>{t('demo.search.r1_dist', '0.8 km')}</span>
+                      <span className="num">{t('demo.search.r1_dist', '0.8 km')}</span>
                       <span className="map-listing-dot" aria-hidden />
                       <span className="text-emerald-600 dark:text-emerald-400 font-semibold">{t('map.sheet.open', 'Open')}</span>
                       <span className="map-listing-dot" aria-hidden />
                       <span>
                         {t('map.sheet.next_slot', 'Next slot')}{' '}
-                        <span className="font-semibold text-slate-700 dark:text-slate-300">{t('demo.search.r1_next', '11:30')}</span>
+                        <span className="num font-semibold text-slate-700 dark:text-slate-300">{t('demo.search.r1_next', '11:30')}</span>
                       </span>
                     </div>
                     <div className="flex items-center gap-2 mt-1.5 text-xs">
-                      <span className="flex items-center gap-0.5 font-semibold text-slate-800 dark:text-slate-200">
+                      <span className="num flex items-center gap-0.5 font-semibold text-slate-800 dark:text-slate-200">
                         <ProtoIcon name="star" className="w-3 h-3 text-amber-500 fill-amber-500" />
                         {t('demo.search.r1_stars', '4.8')}
                       </span>
-                      <span className="text-slate-400 dark:text-slate-500">({t('demo.search.r1_rev_n', '312')})</span>
+                      <span className="num text-slate-400 dark:text-slate-500">({t('demo.search.r1_rev_n', '312')})</span>
                       <span className="map-listing-dot" aria-hidden />
-                      <span className="text-slate-600 dark:text-slate-400 font-medium">{t('demo.search.r1_price', 'EGP 350-900')}</span>
+                      <span className="num text-slate-600 dark:text-slate-400 font-medium">{t('demo.search.r1_price', 'EGP 350-900')}</span>
                     </div>
                   </div>
                   <span className="map-listing-card__action btn-primary shadow-sm">{t('map.sheet.book', 'Book')}</span>
@@ -337,29 +337,29 @@ export function B2cMapMainColumn() {
                   </div>
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-1.5">
-                      <span className="font-semibold text-slate-900 dark:text-slate-100 truncate">
+                      <span className="t-title text-slate-900 dark:text-slate-100 truncate">
                         {t('demo.search.r2_name', 'QuickFix Nasr City')}
                       </span>
                       <ProtoIcon name="badge-check" className="w-4 h-4 text-teal-700 dark:text-teal-400 flex-shrink-0" />
                     </div>
                     <div className="map-listing-meta">
-                      <span>{t('demo.search.r2_dist', '1.6 km')}</span>
+                      <span className="num">{t('demo.search.r2_dist', '1.6 km')}</span>
                       <span className="map-listing-dot" aria-hidden />
                       <span className="text-emerald-600 dark:text-emerald-400 font-semibold">{t('map.sheet.open', 'Open')}</span>
                       <span className="map-listing-dot" aria-hidden />
                       <span>
                         {t('map.sheet.next_slot', 'Next slot')}{' '}
-                        <span className="font-semibold text-slate-700 dark:text-slate-300">{t('demo.search.r2_next', '12:15')}</span>
+                        <span className="num font-semibold text-slate-700 dark:text-slate-300">{t('demo.search.r2_next', '12:15')}</span>
                       </span>
                     </div>
                     <div className="flex items-center gap-2 mt-1.5 text-xs">
-                      <span className="flex items-center gap-0.5 font-semibold text-slate-800 dark:text-slate-200">
+                      <span className="num flex items-center gap-0.5 font-semibold text-slate-800 dark:text-slate-200">
                         <ProtoIcon name="star" className="w-3 h-3 text-amber-500 fill-amber-500" />
                         {t('demo.search.r2_stars', '4.6')}
                       </span>
-                      <span className="text-slate-400 dark:text-slate-500">({t('demo.search.r2_rev_n', '188')})</span>
+                      <span className="num text-slate-400 dark:text-slate-500">({t('demo.search.r2_rev_n', '188')})</span>
                       <span className="map-listing-dot" aria-hidden />
-                      <span className="text-slate-600 dark:text-slate-400 font-medium">{t('demo.search.r2_price', 'EGP 250-1200')}</span>
+                      <span className="num text-slate-600 dark:text-slate-400 font-medium">{t('demo.search.r2_price', 'EGP 250-1200')}</span>
                     </div>
                   </div>
                   <span className="map-listing-card__action btn-secondary">{t('map.sheet.view', 'View')}</span>
@@ -367,7 +367,7 @@ export function B2cMapMainColumn() {
 
                 <button
                   type="button"
-                  className="map-more-results tap"
+                  className="map-more-results tap num"
                   onClick={() => show('b2c-search')}
                 >
                   {t('map.sheet.more', '+ 15 more centers - see full list')}

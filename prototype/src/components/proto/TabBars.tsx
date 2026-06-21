@@ -17,31 +17,48 @@ function TabInner({ icon, label }: { icon: string; label: string }) {
 
 export function B2cTabBar({ active }: { active: string }) {
   const { show, t } = useProto();
-  /** Order: Home first (conventional), then map → bookings → shop → garage. */
-  const items: [string, string, string, string][] = [
+  /** Home · Bookings · [Map FAB] · Shop · More. Map is the product's core
+   *  action, so it's the elevated centre button; Garage + settings now live
+   *  inside More. */
+  const side: [string, string, string, string][] = [
     ['b2c-dashboard', t('tabs.b2c.home', 'Home'), 'home', 'home'],
-    ['b2c-map', t('tabs.b2c.map', 'Map'), 'map', 'map'],
     ['b2c-bookings', t('tabs.b2c.bookings', 'Bookings'), 'calendar-check', 'bookings'],
     ['b2c-marketplace', t('tabs.b2c.shop', 'Shop'), 'store', 'market'],
-    ['b2c-garage', t('tabs.b2c.garage', 'Garage'), 'car', 'garage'],
+    ['b2c-more', t('tabs.b2c.more', 'More'), 'ellipsis', 'more'],
   ];
+  const renderTab = ([id, label, icon, key]: [string, string, string, string]) => {
+    const isOn = active === key;
+    if (isOn) {
+      return (
+        <span key={id} className="tab on" aria-current="page">
+          <TabInner icon={icon} label={label} />
+        </span>
+      );
+    }
+    return (
+      <button key={id} type="button" className="tab tap" onClick={() => show(id)}>
+        <TabInner icon={icon} label={label} />
+      </button>
+    );
+  };
+  const mapOn = active === 'map';
   return (
-    <nav className="tab-bar" aria-label={t('tabs.b2c.nav_label', 'Primary navigation')}>
-      {items.map(([id, label, icon, key]) => {
-        const isOn = active === key;
-        if (isOn) {
-          return (
-            <span key={id} className="tab on" aria-current="page">
-              <TabInner icon={icon} label={label} />
-            </span>
-          );
-        }
-        return (
-          <button key={id} type="button" className="tab tap" onClick={() => show(id)}>
-            <TabInner icon={icon} label={label} />
-          </button>
-        );
-      })}
+    <nav className="tab-bar tab-bar--fab" aria-label={t('tabs.b2c.nav_label', 'Primary navigation')}>
+      {renderTab(side[0])}
+      {renderTab(side[1])}
+      <button
+        type="button"
+        className={`tab tab-fab tap${mapOn ? ' is-on' : ''}`}
+        onClick={() => show('b2c-map')}
+        aria-current={mapOn ? 'page' : undefined}
+      >
+        <span className="tab-fab-circle">
+          <ProtoIcon name="map" className="ic-fab" strokeWidth={1.9} aria-hidden />
+        </span>
+        <span className="tab-label">{t('tabs.b2c.map', 'Map')}</span>
+      </button>
+      {renderTab(side[2])}
+      {renderTab(side[3])}
     </nav>
   );
 }
