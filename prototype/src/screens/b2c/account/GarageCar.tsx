@@ -27,7 +27,7 @@ export function B2cGarage() {
     <ScreenWrap id="b2c-garage">
       <ProtoStatusBar />
       <div className="px-5 pt-3 pb-2 flex items-center justify-between bg-white dark:bg-slate-900 border-b border-slate-100 dark:border-slate-700/80">
-        <div className="font-bold text-xl tracking-tight text-slate-900 dark:text-slate-100">{t('acct.garage.title', 'My garage')}</div>
+        <div className="t-h1 text-slate-900 dark:text-slate-100">{t('acct.garage.title', 'My garage')}</div>
         <button
           type="button"
           aria-label={t('acct.garage.add_a11y', 'Add car')}
@@ -56,7 +56,7 @@ export function B2cGarage() {
           <div className="flex justify-between items-start">
             <div>
               <div className="text-xs uppercase tracking-wider opacity-80">{t('acct.garage.primary', 'Primary')}</div>
-              <div className="text-xl font-bold mt-0.5">{t('demo.garage.corolla_title', 'Toyota Corolla')}</div>
+              <div className="t-h2 mt-0.5">{t('demo.garage.corolla_title', 'Toyota Corolla')}</div>
               <div className="text-sm opacity-80">{t('demo.garage.meta_line', '2019 · 82,450 km · س ب ج 7421')}</div>
             </div>
             <ProtoIcon name="car" className="w-10 h-10 opacity-70" aria-hidden />
@@ -402,7 +402,7 @@ export function B2cCardetail() {
               <div className="flex items-start justify-between gap-3 mb-4">
                 <div>
                   <div className="text-[10px] font-bold uppercase tracking-wide text-slate-400 dark:text-slate-500">{detailRow.date}</div>
-                  <h2 id="hist-sheet-title" className="text-lg font-bold text-slate-900 dark:text-slate-100 mt-1 leading-snug">
+                  <h2 id="hist-sheet-title" className="t-h2 text-slate-900 dark:text-slate-100 mt-1">
                     {detailRow.service}
                   </h2>
                 </div>
@@ -485,7 +485,7 @@ export function B2cCardetail() {
               className="relative w-full max-w-[22rem] rounded-2xl border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-900 shadow-2xl p-5 max-h-[min(92vh,32rem)] overflow-y-auto proto-scroll"
             >
               <div className="flex items-start justify-between gap-2 mb-4">
-                <h2 id="manual-sheet-title" className="text-lg font-bold text-slate-900 dark:text-slate-100 leading-tight">
+                <h2 id="manual-sheet-title" className="t-h2 text-slate-900 dark:text-slate-100">
                   {t('acct.card.manual_sheet_title', 'Add service (manual)')}
                 </h2>
                 <button

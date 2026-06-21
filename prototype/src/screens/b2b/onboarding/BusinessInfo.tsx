@@ -34,7 +34,7 @@ export function B2bOnboard1() {
         <div className="flex-1 overflow-y-auto p-4 min-h-0">
           <OnboardStepper active={0} interactive />
           <div className="onboard-card-proto p-4">
-            <div className="text-lg font-bold text-slate-900 dark:text-slate-100">{t('b2b.on1.title', 'Business information')}</div>
+            <div className="t-h2 text-slate-900 dark:text-slate-100">{t('b2b.on1.title', 'Business information')}</div>
             <div className="text-sm text-slate-600 dark:text-slate-400 mt-0.5">{t('b2b.on1.lead', 'Used for verification and on your public listing.')}</div>
 
             <div className="mt-4 rounded-xl border border-dashed border-teal-200/80 bg-gradient-to-br from-teal-50/40 to-transparent p-3 dark:border-teal-800/50 dark:from-teal-950/30">

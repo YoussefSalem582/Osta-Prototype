@@ -25,7 +25,7 @@ export function B2cAddcar() {
       </div>
       <div className="flex-1 app-surface px-6 pt-2 pb-4 flex flex-col overflow-y-auto min-h-0">
         <span className="preauth-eyebrow">{t('disc.addcar.eyebrow', 'Your garage')}</span>
-        <h2 className="text-2xl font-extrabold leading-tight tracking-tight text-slate-900 dark:text-slate-100">
+        <h2 className="t-h1 text-slate-900 dark:text-slate-100">
           {t('disc.addcar.title', 'Add your car')}
         </h2>
         <p className="text-sm text-slate-600 dark:text-slate-400 mt-1.5">{t('disc.addcar.lead', 'We’ll auto-log services you book through CarCare.')}</p>

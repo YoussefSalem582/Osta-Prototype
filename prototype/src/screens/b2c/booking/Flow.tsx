@@ -618,7 +618,7 @@ export function B2cPayment() {
             </div>
           )}
           <div className="divider my-3" />
-          <div className="flex justify-between items-baseline gap-2 font-bold text-lg text-slate-900 dark:text-slate-100">
+          <div className="flex justify-between items-baseline gap-2 font-bold text-lg text-slate-900 dark:text-slate-100 num">
             <span>{t('book.pay.total', 'Total')}</span>
             <span className="text-end leading-tight tabular-nums">{totalLabel}</span>
           </div>
@@ -744,7 +744,7 @@ export function B2cConfirmed() {
         <div className="rounded-full px-4 py-1 text-[11px] font-bold uppercase tracking-wider bg-teal-100 dark:bg-teal-950/60 text-teal-900 dark:text-teal-100 ring-1 ring-teal-200/80 mb-3">
           {t('book.confirmed.badge', 'Confirmed')}
         </div>
-        <div className="text-2xl font-bold text-slate-900 dark:text-slate-100 leading-tight">{t('book.confirmed.title', 'Booking confirmed')}</div>
+        <div className="t-h1 text-slate-900 dark:text-slate-100">{t('book.confirmed.title', 'Booking confirmed')}</div>
         <div className="text-sm text-slate-500 dark:text-slate-400 mt-2 max-w-[20rem] leading-relaxed">{t('book.confirmed.lead', "You're booked at AutoPro Heliopolis on Sat 18 Apr at 11:00. We'll remind you an hour before.")}</div>
         <div className="mt-8 w-full app-panel p-4 text-start shadow-xl shadow-slate-900/15 ring-1 ring-teal-100/80 dark:ring-teal-900/30 rounded-2xl border border-slate-100 dark:border-slate-700">
           <div className="flex justify-between items-baseline gap-4 text-xs text-slate-500 dark:text-slate-400 pb-3 border-b border-slate-100 dark:border-slate-700 mb-4">

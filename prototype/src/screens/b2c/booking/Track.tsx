@@ -11,7 +11,7 @@ export function B2cBookings() {
       <ProtoStatusBar />
       <div className="px-5 pt-3 pb-3 flex items-center justify-between bg-gradient-to-b from-white via-white to-slate-50/70 dark:from-slate-900 dark:via-slate-900 dark:to-slate-950/80 border-b border-slate-100 dark:border-slate-700/80">
         <div>
-          <div className="font-bold text-xl tracking-tight text-slate-900 dark:text-slate-100">{t('book.list.title', 'Bookings')}</div>
+          <div className="t-h1 text-slate-900 dark:text-slate-100">{t('book.list.title', 'Bookings')}</div>
           <div className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">{t('book.list.sub', 'Upcoming jobs & history')}</div>
         </div>
         <button

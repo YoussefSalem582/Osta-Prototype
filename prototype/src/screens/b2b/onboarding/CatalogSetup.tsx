@@ -100,7 +100,7 @@ export function B2bOnboard3() {
           <div className="onboard-card-proto p-4">
             <div className="flex flex-wrap items-start justify-between gap-2">
               <div className="min-w-0">
-                <div className="text-lg font-bold text-slate-900 dark:text-slate-100">{t('b2b.cat.title', 'Your service catalog')}</div>
+                <div className="t-h2 text-slate-900 dark:text-slate-100">{t('b2b.cat.title', 'Your service catalog')}</div>
                 <div className="text-sm text-slate-600 dark:text-slate-400 mt-0.5">{t('b2b.cat.lead', 'Start with presets — you can edit any time.')}</div>
               </div>
               <span className="shrink-0 rounded-full bg-teal-600/15 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wide text-teal-950 dark:bg-teal-500/25 dark:text-teal-100">

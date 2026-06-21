@@ -40,11 +40,11 @@ export function B2bBooking() {
               )}
               <span className="text-xs text-slate-500 dark:text-slate-400">{t('b2b.booking.when', 'Sat 18 Apr · 11:00')}</span>
             </div>
-            <div className="mt-2 text-xl font-bold text-slate-900 dark:text-slate-100">{t('b2b.on3.s1', 'Oil change (standard)')}</div>
+            <div className="mt-2 t-h2 text-slate-900 dark:text-slate-100">{t('b2b.on3.s1', 'Oil change (standard)')}</div>
             <div className="text-sm text-slate-500 dark:text-slate-400">{t('b2b.booking.vehicle', 'Corolla 2019 · 82,450 km')}</div>
             <div className="mt-2 flex justify-between">
               <span className="text-xs text-slate-500 dark:text-slate-400">{t('b2b.booking.quote', 'Quote')}</span>
-              <span className="text-lg font-bold text-slate-900 dark:text-slate-100">{t('demo.track.price_350', 'EGP 350')}</span>
+              <span className="text-lg font-bold text-slate-900 dark:text-slate-100 num">{t('demo.track.price_350', 'EGP 350')}</span>
             </div>
             <div className="mt-3 flex flex-col gap-2">
               {phase === 'new_booking' ? (

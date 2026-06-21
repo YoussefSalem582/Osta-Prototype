@@ -56,7 +56,7 @@ export function B2bReviews() {
             className="kpi-tile kpi-tile--amber tap w-full p-3 pl-4 text-left"
             onClick={() => setRevChip('pending')}
           >
-            <div className="text-3xl font-bold text-slate-900 dark:text-slate-100">
+            <div className="t-display text-slate-900 dark:text-slate-100 num">
               {t('demo.search.r1_stars', '4.8')}{' '}
               <span className="text-sm font-normal text-slate-500 dark:text-slate-400">{t('b2b.rev.reviews_n', '312 reviews')}</span>
             </div>

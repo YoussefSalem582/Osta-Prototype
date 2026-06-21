@@ -129,7 +129,7 @@ export function B2bSignup() {
             </div>
             <span className="font-bold text-white text-[15px]">{t('b2b.signup.brand', 'CarCare for Business')}</span>
           </div>
-          <h2 className="text-2xl font-extrabold leading-tight tracking-tight text-white">
+          <h2 className="t-h1 text-white">
             {t('b2b.signup.hero_title', 'Fill your schedule. Grow your shop.')}
           </h2>
           <p className="mt-3 text-sm text-white/90 leading-relaxed">

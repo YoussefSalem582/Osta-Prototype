@@ -72,7 +72,7 @@ export function B2cShop() {
             <div className="flex items-start justify-between gap-3">
               <div>
                 <div className="flex items-center gap-2">
-                  <div className="text-xl font-bold text-slate-900 dark:text-slate-100">{t('demo.shop.name', 'AutoPro Heliopolis')}</div>
+                  <div className="t-h2 text-slate-900 dark:text-slate-100">{t('demo.shop.name', 'AutoPro Heliopolis')}</div>
                   <ProtoIcon name="badge-check" className="w-5 h-5 text-teal-700 dark:text-teal-400" />
                 </div>
                 <div className="text-xs text-slate-500 dark:text-slate-400 mt-1">{t('disc.shop.subtitle', 'Authorized dealer · Independent workshop')}</div>
@@ -317,7 +317,7 @@ export function B2cTow() {
               <div className="flex-1 min-w-0">
                 <div className="flex items-start justify-between gap-2">
                   <div>
-                    <h1 className="text-[19px] font-extrabold text-slate-900 dark:text-slate-100 leading-snug tracking-tight">
+                    <h1 className="t-h2 text-slate-900 dark:text-slate-100">
                       {t('demo.tow.brand_title', 'City Tow 24/7')}
                     </h1>
                     <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
@@ -489,7 +489,7 @@ export function B2cTow() {
                   <div className="text-[11px] font-semibold uppercase tracking-wide text-blue-800/80 dark:text-blue-300/90">{t('disc.tow.ex_est', 'Example estimate')}</div>
                   <div className="text-xs text-slate-600 dark:text-slate-400 mt-1">{t('disc.tow.ex_note', '8 km tow · weekday · standard car')}</div>
                 </div>
-                <div className="text-lg font-extrabold text-blue-900 dark:text-blue-200">
+                <div className="text-lg font-extrabold text-blue-900 dark:text-blue-200 num">
                   {t('demo.tow.example_total', '~EGP 520')}
                 </div>
               </div>

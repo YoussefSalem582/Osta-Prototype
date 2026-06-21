@@ -43,7 +43,7 @@ export function B2bPayouts() {
           ) : null}
           <div className="kpi-tile kpi-tile--teal p-3 pl-4 text-center">
             <div className="text-xs text-slate-500 dark:text-slate-400">{t('b2b.pay.available', 'Available')}</div>
-            <div className="text-2xl font-bold text-slate-900 dark:text-slate-100">{t('demo.b2b.pay.available_amt', 'EGP 12,840')}</div>
+            <div className="t-h1 text-slate-900 dark:text-slate-100">{t('demo.b2b.pay.available_amt', 'EGP 12,840')}</div>
             <button
               type="button"
               className="btn-primary mt-2 w-full py-2 text-xs tap active:translate-y-[0.5px] disabled:opacity-60"
@@ -82,7 +82,7 @@ export function B2bPayouts() {
                 </div>
               </div>
               <div className="text-right">
-                <div className="font-bold text-slate-900 dark:text-slate-100">{pay}</div>
+                <div className="font-bold text-slate-900 dark:text-slate-100 num">{pay}</div>
                 <span className={`badge ${s === 'paid' ? 'b-green' : 'b-amber'} text-[9px]`}>
                   {s === 'paid' ? t('b2b.pay.status.paid', 'paid') : s === 'pending' ? t('b2b.pay.status.pending', 'pending') : s}
                 </span>

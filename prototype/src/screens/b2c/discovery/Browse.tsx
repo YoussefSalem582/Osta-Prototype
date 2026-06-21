@@ -41,7 +41,7 @@ export function B2cMarketplace() {
       <div className="px-4 pt-2 pb-0 bg-white dark:bg-slate-900 border-b border-slate-100 dark:border-slate-700/80">
         <div className="flex items-start justify-between gap-2 pb-2">
           <div>
-            <div className="font-bold text-lg leading-tight text-slate-900 dark:text-slate-100">{t('disc.market.title', 'Shop')}</div>
+            <div className="t-h1 text-slate-900 dark:text-slate-100">{t('disc.market.title', 'Shop')}</div>
             <div className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">{t('disc.market.sub', 'Parts & accessories from verified sellers')}</div>
           </div>
           <span className="rounded-full px-2 py-0.5 text-[9px] font-semibold uppercase tracking-wide bg-teal-100 dark:bg-teal-950/60 text-teal-900 dark:text-teal-200 border border-teal-200/80 dark:border-teal-800/55 whitespace-nowrap mt-1">
@@ -111,7 +111,7 @@ export function B2cMarketplace() {
             <div className="font-bold text-[15px] mt-1 leading-snug">{t('disc.market.deal_title', 'Bosch oil filter + 4L 5W-30')}</div>
             <div className="flex items-end justify-between mt-3 gap-3">
               <div className="min-w-0">
-                <span className="text-2xl font-extrabold tracking-tight">{t('demo.market.promo_now', 'EGP 620')}</span>
+                <span className="text-2xl font-extrabold tracking-tight num">{t('demo.market.promo_now', 'EGP 620')}</span>
                 <span className="text-sm line-through opacity-75 ms-2">{t('demo.market.promo_was', 'EGP 780')}</span>
               </div>
               <span className="shrink-0 px-4 py-2 rounded-2xl bg-white dark:bg-white/95 dark:text-slate-900 text-xs font-bold text-slate-900 shadow-md">
@@ -167,7 +167,7 @@ export function B2cMarketplace() {
                   {t(row.starKey, row.starEn)} · {t(row.extraKey, row.extraEn)}
                 </span>
               </div>
-              <div className="mt-2 font-bold text-sm text-slate-900 dark:text-white">{t(row.priceKey, row.priceEn)}</div>
+              <div className="mt-2 font-bold text-sm text-slate-900 dark:text-white num">{t(row.priceKey, row.priceEn)}</div>
               <div className="text-[10px] text-slate-500 dark:text-slate-400 truncate mt-0.5">{t(row.sellerKey, row.sellerEn)}</div>
               <div className="mt-2 pt-2 border-t border-slate-100 dark:border-slate-700/80 flex items-center justify-between text-[10px] font-semibold text-teal-700 dark:text-teal-400">
                 {t('disc.market.view_details', 'Details')}

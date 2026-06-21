@@ -30,7 +30,7 @@ export function B2bPending() {
                 24h
               </span>
             </div>
-            <div className="text-xl font-bold mt-3 text-slate-900 dark:text-slate-100">{t('b2b.pend.title', 'Verification in progress')}</div>
+            <div className="t-h2 mt-3 text-slate-900 dark:text-slate-100">{t('b2b.pend.title', 'Verification in progress')}</div>
             <div className="text-sm text-slate-500 dark:text-slate-400 mt-2">{t('b2b.pend.lead', 'We’re reviewing your business and catalog. Typical turnaround is 24–48 hours.')}</div>
             <ol className="mt-5 rounded-2xl border border-slate-200/95 bg-white/95 p-4 text-left dark:border-slate-600 dark:bg-slate-900/40">
               {rows.map(([rowTitle, s], ix) => (

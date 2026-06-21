@@ -133,13 +133,13 @@ export function B2cPartDetail() {
                   <span className="badge b-green text-[10px]">{t('disc.part.tab_verified_seller', 'Verified seller')}</span>
                 )}
               </div>
-              <h1 className="text-xl font-bold leading-snug tracking-tight text-slate-900 dark:text-slate-100">{title}</h1>
+              <h1 className="t-h2 text-slate-900 dark:text-slate-100">{title}</h1>
               <div className="text-xs text-slate-500 dark:text-slate-400">{t(row.skuKey, row.skuEn)}</div>
             </div>
 
             <div className="flex items-end justify-between gap-3 flex-wrap">
               <div>
-                <div className={`text-2xl font-bold ${oos ? 'line-through opacity-55 text-slate-500 dark:text-slate-400' : 'text-slate-900 dark:text-white'}`}>
+                <div className={`text-2xl font-bold num ${oos ? 'line-through opacity-55 text-slate-500 dark:text-slate-400' : 'text-slate-900 dark:text-white'}`}>
                   {price}
                 </div>
                 <div className="text-xs text-slate-500 dark:text-slate-400 mt-1">{t(row.shipKey, row.shipEn)}</div>
@@ -280,7 +280,7 @@ function RelatedCard({
         <ProtoIcon name={r.iconName} className={`w-7 h-7 ${r.iconClass}`} aria-hidden strokeWidth={1.35} />
       </div>
       <div className="text-[11px] font-semibold text-slate-900 dark:text-slate-100 line-clamp-2 leading-tight">{t(r.titleKey, r.titleEn)}</div>
-      <div className="mt-2 text-xs font-bold text-slate-900 dark:text-white">{t(r.priceKey, r.priceEn)}</div>
+      <div className="mt-2 text-xs font-bold text-slate-900 dark:text-white num">{t(r.priceKey, r.priceEn)}</div>
     </button>
   );
 }

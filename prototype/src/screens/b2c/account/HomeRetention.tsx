@@ -27,7 +27,7 @@ export function B2cDashboard() {
         <div>
           <div className="text-sm text-slate-600 dark:text-slate-400">
             {t(greetK, greetFallback)}          </div>
-          <div className="font-bold text-xl tracking-tight text-slate-900 dark:text-slate-100">{t('acct.dash.demo_first_name', 'Youssef')}</div>
+          <div className="t-h1 text-slate-900 dark:text-slate-100">{t('acct.dash.demo_first_name', 'Youssef')}</div>
         </div>
         <button
           type="button"
@@ -92,7 +92,7 @@ export function B2cDashboard() {
             {t('acct.dash.health', 'Car health')}
           </h2>
           <div className="flex items-end gap-2 mb-3">
-            <div className="text-3xl font-bold text-teal-700 dark:text-teal-300 tabular-nums">{t('demo.dash.health_score', '82')}</div>
+            <div className="t-display text-teal-700 dark:text-teal-300 tabular-nums">{t('demo.dash.health_score', '82')}</div>
             <div className="text-xs text-slate-500 dark:text-slate-400 pb-1">{t('acct.dash.good', '/ 100 · Good')}</div>
           </div>
           <div
@@ -331,7 +331,7 @@ export function B2cExpenses() {
         </p>
         <div className="p-4 rounded-2xl bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900 text-white shadow-xl border border-white/10">
           <div className="text-xs uppercase tracking-wider opacity-70">{t('acct.exp.year', 'Spent this year')}</div>
-          <div className="text-3xl font-bold mt-1">{t('demo.exp.year_total', 'EGP 7,820')}</div>
+          <div className="text-3xl font-bold mt-1 num">{t('demo.exp.year_total', 'EGP 7,820')}</div>
           <div className="text-xs opacity-70 mt-1">{t('acct.exp.across', 'Across 14 services · 2 cars')}</div>
         </div>
         <div className="grid grid-cols-2 gap-3 mt-3">
@@ -354,7 +354,7 @@ export function B2cExpenses() {
         </div>
         <div className="label mt-5 mb-2">{t('acct.exp.cpk', 'Cost per km')}</div>
         <div className="p-4 rounded-xl border border-slate-200 dark:border-slate-600 bg-white/50 dark:bg-slate-900/40">
-          <div className="text-2xl font-bold text-slate-900 dark:text-slate-100">{t('demo.exp.cpk', 'EGP 0.84')}</div>
+          <div className="text-2xl font-bold text-slate-900 dark:text-slate-100 num">{t('demo.exp.cpk', 'EGP 0.84')}</div>
           <div className="text-xs text-slate-500 dark:text-slate-400">{t('acct.exp.rolling', 'Corolla · rolling 3 months')}</div>
           <div className="h-20 mt-2 bg-slate-50 dark:bg-slate-800/90 rounded flex items-end gap-1 p-1">
             {bars.map((h, i) => (
