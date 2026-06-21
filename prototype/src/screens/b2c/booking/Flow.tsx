@@ -707,7 +707,7 @@ export function B2cPayment() {
         <div className="mt-5 callout-info flex items-start gap-2 text-xs text-slate-600 dark:text-slate-400 p-3 rounded-xl ring-1 ring-slate-200/80 dark:ring-slate-700">
           <ProtoIcon name="shield-check" className="w-4 h-4 text-blue-600 dark:text-blue-400 mt-0.5 flex-shrink-0" aria-hidden />
           <div>
-            {t('book.pay.refund', 'If the service can’t be completed as described, CarCare refunds within 48h.')}{' '}
+            {t('book.pay.refund', 'If the service can’t be completed as described, Osta refunds within 48h.')}{' '}
             <button type="button" className="text-teal-700 dark:text-teal-400 font-semibold tap">
               {t('book.pay.learn', 'Learn more')}
             </button>

@@ -7,7 +7,7 @@ export const FTG_GUIDE_AR = {
         label: 'مصادر الحقيقة',
         body: 'اعتبر هذه المصادر مرجعية قبل كتابة الكود أو المخطط.',
         subs: [
-          '<strong>CarCare_PRD_v2.md</strong> — نطاق المنتج والأسطح وMVP مقابل المرحلة 2.',
+          '<strong>Osta_PRD_v2.md</strong> — نطاق المنتج والأسطح وMVP مقابل المرحلة 2.',
           '<strong>نموذج HTML هذا</strong> — معرفات الشاشات والمجموعات ونصوص UX للتسليم.',
           '<strong>ADRs في المستودع</strong> — قرارات مقفلة (BaaS، شكل المصادقة، مزود الخريطة).',
         ],
@@ -49,10 +49,10 @@ export const FTG_GUIDE_AR = {
         label: 'تخطيط المونوريبو',
         body: 'يحافظ على نطاق وواجهة مشتركة بين B2C وB2B.',
         subs: [
-          '<strong>apps/carcare_b2c</strong> — نقطة دخول المستهلك، أيقونات المنتج.',
-          '<strong>apps/carcare_b2b</strong> — نقطة دخول الأعمال، نقاط توقف متكيفة.',
+          '<strong>apps/osta_b2c</strong> — نقطة دخول المستهلك، أيقونات المنتج.',
+          '<strong>apps/osta_b2b</strong> — نقطة دخول الأعمال، نقاط توقف متكيفة.',
           '<strong>packages/core</strong> — بيئة، تسجيل، أخطاء، توصيل عميل Supabase.',
-          '<strong>packages/ui</strong> — ويدجت CarCare، امتدادات السمة.',
+          '<strong>packages/ui</strong> — ويدجت Osta، امتدادات السمة.',
           '<strong>packages/features/&lt;name&gt;</strong> — اختياري؛ استخرج عند استقرار API (خريطة، حجز).',
         ],
       },
@@ -300,7 +300,7 @@ export const FTG_GUIDE_AR = {
       {
         label: 'رموز التصميم',
         body: 'اربط متغيرات CSS من النموذج (<strong>--brand</strong>، نصف القطر، النوع) بـ <strong>ThemeExtension</strong>.',
-        subs: ['مصدر واحد لـ <strong>CarCareButton</strong>، البطاقات، الشرائح.'],
+        subs: ['مصدر واحد لـ <strong>OstaButton</strong>، البطاقات، الشرائح.'],
       },
       {
         label: 'سير عمل i18n',

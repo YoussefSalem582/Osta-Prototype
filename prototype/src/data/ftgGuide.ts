@@ -7,7 +7,7 @@ export const FTG_GUIDE ={
         label: 'Sources of truth',
         body: 'Treat these as canonical before writing code or schema.',
         subs: [
-          '<strong>CarCare_PRD_v2.md</strong> — product scope, surfaces, MVP vs phase 2.',
+          '<strong>Osta_PRD_v2.md</strong> — product scope, surfaces, MVP vs phase 2.',
           '<strong>This HTML prototype</strong> — screen IDs, groups, and UX copy for handoff.',
           '<strong>ADRs in repo</strong> — locked decisions (BaaS, auth shape, map provider).',
         ],
@@ -49,10 +49,10 @@ export const FTG_GUIDE ={
         label: 'Monorepo layout',
         body: 'Keeps shared domain and UI consistent across B2C and B2B.',
         subs: [
-          '<strong>apps/carcare_b2c</strong> — consumer entrypoint, product icons.',
-          '<strong>apps/carcare_b2b</strong> — business entrypoint, adaptive breakpoints.',
+          '<strong>apps/osta_b2c</strong> — consumer entrypoint, product icons.',
+          '<strong>apps/osta_b2b</strong> — business entrypoint, adaptive breakpoints.',
           '<strong>packages/core</strong> — env, logging, errors, Supabase client wiring.',
-          '<strong>packages/ui</strong> — CarCare widgets, theme extensions.',
+          '<strong>packages/ui</strong> — Osta widgets, theme extensions.',
           '<strong>packages/features/&lt;name&gt;</strong> — optional; extract when API is stable (booking, map).',
         ],
       },
@@ -297,7 +297,7 @@ export const FTG_GUIDE ={
       {
         label: 'Design tokens',
         body: 'Map CSS variables from the prototype (<strong>--brand</strong>, radii, type) to <strong>ThemeExtension</strong>.',
-        subs: ['Single source for <strong>CarCareButton</strong>, cards, chips.'],
+        subs: ['Single source for <strong>OstaButton</strong>, cards, chips.'],
       },
       {
         label: 'i18n workflow',

@@ -29,7 +29,7 @@ export function B2bSplash() {
         <div className="flex-1 flex flex-col items-center justify-center px-8 sm:px-10 text-center gap-5 min-h-0">
           <BrandLogo className="splash-minimal-logo splash-minimal-logo--b2b" alt="" />
           <div className="flex flex-col items-center gap-2 max-w-md">
-            <h1 className="splash-minimal-title splash-minimal-title--b2b">{t('b2b.splash.title', 'CarCare Business')}</h1>
+            <h1 className="splash-minimal-title splash-minimal-title--b2b">{t('b2b.splash.title', 'Osta Business')}</h1>
             <p className="splash-minimal-tagline splash-minimal-tagline--b2b">{t('b2b.splash.tagline', 'Take bookings, manage your catalog, get paid.')}</p>
           </div>
         </div>

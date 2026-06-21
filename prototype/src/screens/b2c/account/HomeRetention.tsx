@@ -327,7 +327,7 @@ export function B2cExpenses() {
       </div>
       <div className="flex-1 overflow-y-auto px-5 pt-4 app-surface min-h-0 space-y-3">
         <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-          {t('acct.exp.lead', 'Log fuel, parts, and recurring costs per car — complements bookings you make in CarCare.')}
+          {t('acct.exp.lead', 'Log fuel, parts, and recurring costs per car — complements bookings you make in Osta.')}
         </p>
         <div className="p-4 rounded-2xl bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900 text-white shadow-xl border border-white/10">
           <div className="text-xs uppercase tracking-wider opacity-70">{t('acct.exp.year', 'Spent this year')}</div>

@@ -116,7 +116,7 @@ export function ProtoShell() {
           </div>
           <div className="min-w-0">
             <div id="shellTitle" className="text-lg font-bold tracking-tight text-slate-900 dark:text-slate-100 truncate">
-              {t('shell.title', 'CarCare — MVP UI/UX Prototype')}
+              {t('shell.title', 'Osta — MVP UI/UX Prototype')}
             </div>
             <div id="shellSubtitle" className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
               {t('shell.subtitle', 'Map-first maintenance marketplace · B2C + B2B · Flutter team handbook')}

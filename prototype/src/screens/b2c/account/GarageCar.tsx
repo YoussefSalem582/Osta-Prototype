@@ -430,7 +430,7 @@ export function B2cCardetail() {
                   <>
                     <div className="font-semibold text-teal-800 dark:text-teal-200 flex items-center gap-1.5">
                       <ProtoIcon name="link" className="w-3.5 h-3.5" aria-hidden />
-                      {t('acct.card.hist_linked', 'Linked to CarCare booking')}
+                      {t('acct.card.hist_linked', 'Linked to Osta booking')}
                     </div>
                     {detailRow.bookingRef ? <div className="font-mono mt-1 text-slate-700 dark:text-slate-300">{detailRow.bookingRef}</div> : null}
                   </>

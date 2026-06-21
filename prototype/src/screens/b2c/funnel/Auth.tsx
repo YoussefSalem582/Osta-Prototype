@@ -77,7 +77,7 @@ export function B2cLogin() {
         </div>
         <div className="preauth-funnel-scroll px-7 pt-5 pb-6 flex flex-col">
           <h2 className="preauth-page-title">{t('b2c.login.title', 'Welcome back')}</h2>
-          <p className="preauth-page-lead">{t('b2c.login.lead', 'Enter the email and password for your CarCare account.')}</p>
+          <p className="preauth-page-lead">{t('b2c.login.lead', 'Enter the email and password for your Osta account.')}</p>
           <div className="preauth-form-fields">
             <div>
               <label className="label mb-2 block" htmlFor="b2c-login-email">
@@ -97,7 +97,7 @@ export function B2cLogin() {
               </label>
               <ProtoPasswordField
                 id="b2c-login-password"
-                defaultValue={t('demo.input.password_sample', 'CarCare#2024')}
+                defaultValue={t('demo.input.password_sample', 'Osta#2024')}
                 autoComplete="current-password"
               />
             </div>
@@ -167,7 +167,7 @@ export function B2cRegister() {
               <label className="label mb-1.5 block" htmlFor="b2c-register-password">
                 {t('common.password', 'Password')}
               </label>
-              <ProtoPasswordField id="b2c-register-password" defaultValue={t('demo.input.password_sample', 'CarCare#2024')} autoComplete="new-password" />
+              <ProtoPasswordField id="b2c-register-password" defaultValue={t('demo.input.password_sample', 'Osta#2024')} autoComplete="new-password" />
             </div>
             <div>
               <label className="label mb-1.5 block" htmlFor="b2c-register-password-confirm">
@@ -175,7 +175,7 @@ export function B2cRegister() {
               </label>
               <ProtoPasswordField
                 id="b2c-register-password-confirm"
-                defaultValue={t('demo.input.password_sample', 'CarCare#2024')}
+                defaultValue={t('demo.input.password_sample', 'Osta#2024')}
                 autoComplete="new-password"
               />
             </div>

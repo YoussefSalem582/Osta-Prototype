@@ -260,7 +260,7 @@ export const CATALOG_AR = {
   'ftg-repo-flavors': {
     name: 'المستودع، النكهات، البيئات',
     purpose: 'توثيق شكل المونوريبو، النكهات، --dart-define / مصفوفة البيئات، والتعامل مع الأسرار (بدون مفاتيح في git).',
-    notes: 'مثال: apps/carcare_b2c، apps/carcare_b2b، packages/core، packages/ui، packages/features/*. مصفوفة النكهات: معرّفات الحزم، أسماء العرض، حقن API. تسمية متغيرات CI.',
+    notes: 'مثال: apps/osta_b2c، apps/osta_b2b، packages/core، packages/ui، packages/features/*. مصفوفة النكهات: معرّفات الحزم، أسماء العرض، حقن API. تسمية متغيرات CI.',
     states: ['افتراضي', 'قائمة جهاز جديد'],
   },
   'ftg-architecture': {

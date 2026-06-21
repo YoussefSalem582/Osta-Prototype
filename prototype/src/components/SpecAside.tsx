@@ -17,7 +17,7 @@ function nl2br(escaped: string) {
 
 function specRelatedFlowsLine(screenId: string, t: (a: string, b: string) => string) {
   if (screenId.startsWith('ftg-')) {
-    return t('spec.flows_ftg', 'CarCare PRD · Flutter + Supabase · internal engineering handbook');
+    return t('spec.flows_ftg', 'Osta PRD · Flutter + Supabase · internal engineering handbook');
   }
   if (screenId.startsWith('b2c')) {
     return t('spec.flows_b2c', 'PRD §3 · Core flow §6.1');

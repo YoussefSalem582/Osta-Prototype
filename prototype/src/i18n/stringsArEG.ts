@@ -1,5 +1,5 @@
 export const STRINGS_AR_EG = {
-  'shell.title': 'CarCare — نموذج واجهة MVP',
+  'shell.title': 'Osta — نموذج واجهة MVP',
   'shell.subtitle': 'سوق صيانة يبدأ من الخريطة · B2C + B2B · دليل فريق Flutter',
   'shell.screens': 'الشاشات',
   'shell.footer': 'مُعدّ لتسليم المطوّرين. هدف Flutter — تحويل التخطيطات إلى Material/Cupertino. البيانات الوهمية للتوضيح فقط.',
@@ -32,7 +32,7 @@ export const STRINGS_AR_EG = {
   'spec.raw_catalog': 'الكتالوج الخام',
   'spec.raw_hint': 'كل الحقول من screens.js لهذا الصف.',
   'spec.phase': 'المرحلة',
-  'spec.flows_ftg': 'CarCare PRD · Flutter + Supabase · دليل هندسة داخلي',
+  'spec.flows_ftg': 'Osta PRD · Flutter + Supabase · دليل هندسة داخلي',
   'spec.flows_b2c': 'PRD §3 · التدفق الأساسي §6.1',
   'spec.flows_b2b': 'PRD §4 · التدفق الأساسي §6.3',
   'group.Pre-auth': 'ما قبل التسجيل',
@@ -90,7 +90,7 @@ export const STRINGS_AR_EG = {
   'disc.tow.price_row.after_hours': 'بعد الدوام',
   'disc.tow.price_row.after_val': '+25٪ · 11م–6ص',
 
-  'b2c.splash.title': 'CarCare',
+  'b2c.splash.title': 'Osta',
   'b2c.splash.tagline': 'ورش موثوقة قريب منك. احجز صيانتك في دقائق.',
   'b2c.splash.cta': 'ابدأ',
   'b2c.splash.have_account': 'لدي حساب بالفعل',
@@ -103,7 +103,7 @@ export const STRINGS_AR_EG = {
   'b2c.lang.ar_eg': 'العربية (مصر)',
   'b2c.lang.ar_meta': 'تخطيط من اليمين لليسار',
 
-  'b2c.onb.eyebrow': 'لماذا CarCare',
+  'b2c.onb.eyebrow': 'لماذا Osta',
   'b2c.onb.headline': 'صِيَن عربيتك بدون تخمين',
   'b2c.onb.sub': 'ثلاث طرق نوفّر وقتك قبل ما تحجز.',
   'b2c.onb.f1.title': 'اكتشاف يبدأ من الخريطة',
@@ -123,7 +123,7 @@ export const STRINGS_AR_EG = {
 
   'b2c.login.nav': 'تسجيل الدخول',
   'b2c.login.title': 'أهلاً بعودتك',
-  'b2c.login.lead': 'أدخل البريد وكلمة مرور حساب CarCare.',
+  'b2c.login.lead': 'أدخل البريد وكلمة مرور حساب Osta.',
   'b2c.login.forgot': 'نسيت كلمة المرور؟',
   'b2c.login.submit': 'تسجيل الدخول',
   'b2c.login.no_account': 'مش معاك حساب؟',
@@ -137,7 +137,7 @@ export const STRINGS_AR_EG = {
   'b2c.register.submit': 'إنشاء حساب',
   'b2c.register.have_account': 'معاك حساب؟',
 
-  'b2b.splash.title': 'CarCare Business',
+  'b2b.splash.title': 'Osta Business',
   'b2b.splash.tagline': 'استقبل حجوزات، إدارة الكتالوج، وتحصيل أموالك.',
   'b2b.splash.have_account': 'لدي حساب بالفعل',
 
@@ -170,12 +170,12 @@ export const STRINGS_AR_EG = {
   'b2b.auth.terms': 'شروط الأعمال',
   'b2b.auth.privacy': 'الخصوصية',
 
-  'b2b.login.lead': 'سجّل بالبريد اللي بتستخدمه لورشتك على CarCare.',
+  'b2b.login.lead': 'سجّل بالبريد اللي بتستخدمه لورشتك على Osta.',
   'b2b.login.work_email': 'بريد العمل',
   'b2b.login.new': 'جديد هنا؟',
   'b2b.login.create': 'إنشاء حساب',
 
-  'b2b.signup.brand': 'CarCare للأعمال',
+  'b2b.signup.brand': 'Osta للأعمال',
   'b2b.signup.hero_title': 'املاً جدولك. كبّر ورشتك.',
   'b2b.signup.hero_lead': 'سائقون موثّقون يحجزون على تقويمك. سجل خدمة لكل مركبة. تنافس على الجودة مش الإعلانات.',
   'b2b.signup.bullet1': 'حجوزات فورية',
@@ -292,7 +292,7 @@ export const STRINGS_AR_EG = {
   'disc.addcar.skip': 'تخطي',
   'disc.addcar.eyebrow': 'كراجك',
   'disc.addcar.title': 'ضيف عربيتك',
-  'disc.addcar.lead': 'هنسجّل خدماتك اللي تحجزها من CarCare أوتوماتيك.',
+  'disc.addcar.lead': 'هنسجّل خدماتك اللي تحجزها من Osta أوتوماتيك.',
   'disc.addcar.vin_title': 'امسح رقم الشاسيه بالكاميرا',
   'disc.addcar.vin_sub': 'تعبئة الماركة والموديل والسنة',
   'disc.addcar.brand': 'الماركة',
@@ -509,7 +509,7 @@ export const STRINGS_AR_EG = {
   'book.pay.cash': 'كاش في المركز',
   'book.pay.cash_sub': 'ادفع في الورشة',
   'book.pay.vf': 'فودافون كاش',
-  'book.pay.refund': 'لو الخدمة ما اكتملتش كما الوصف، CarCare ترجع خلال 48 ساعة.',
+  'book.pay.refund': 'لو الخدمة ما اكتملتش كما الوصف، Osta ترجع خلال 48 ساعة.',
   'book.pay.learn': 'اعرف أكتر',
   'book.pay.cta': 'ادفع EGP 315 وأكّد',
   'book.pay.cta_cash_demo': 'أكّد الحجز · الدفع في المركز',
@@ -1100,7 +1100,7 @@ export const STRINGS_AR_EG = {
 
   'demo.status.time': '9:41',
   'demo.input.password_masked': '••••••••••',
-  'demo.input.password_sample': 'CarCare#2024',
+  'demo.input.password_sample': 'Osta#2024',
   'demo.funnel.email_sample': 'you@example.com',
   'demo.funnel.email_b2b': 'omar@autopro.eg',
   'demo.funnel.owner_b2b': 'عمر صالح',

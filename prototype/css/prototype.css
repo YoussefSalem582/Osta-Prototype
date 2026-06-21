@@ -1,5 +1,5 @@
 /* ===================================================================
-   CarCare design system — entry point.
+   Osta design system — entry point.
 
    Split into ordered partials under ./prototype/. The import order IS the
    cascade order, so it must be preserved: tokens first, then base, then

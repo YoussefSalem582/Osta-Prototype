@@ -29,8 +29,8 @@ const BOOKING_DRAFT_DEFAULT: BookingDraft = {
   pricingMode: 'fixed',
 };
 
-const LOCALE_KEY = 'carcare_proto_locale';
-const THEME_KEY = 'carcare_proto_theme';
+const LOCALE_KEY = 'osta_proto_locale';
+const THEME_KEY = 'osta_proto_theme';
 
 type ProtoContextValue = {
   locale: Locale;

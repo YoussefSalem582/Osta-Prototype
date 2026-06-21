@@ -26,7 +26,7 @@ export function B2cSplash() {
         <div className="flex-1 flex flex-col items-center justify-center px-8 sm:px-10 text-center gap-5 min-h-0">
           <BrandLogo className="splash-minimal-logo" alt="" />
           <div className="flex flex-col items-center gap-2 max-w-md">
-            <h1 className="splash-minimal-title splash-minimal-title--b2c">{t('b2c.splash.title', 'CarCare')}</h1>
+            <h1 className="splash-minimal-title splash-minimal-title--b2c">{t('b2c.splash.title', 'Osta')}</h1>
             <p className="splash-minimal-tagline splash-minimal-tagline--b2c">{t('b2c.splash.tagline', 'Verified workshops near you. Book maintenance in minutes.')}</p>
           </div>
         </div>
@@ -114,7 +114,7 @@ export function B2cOnboarding() {
           </button>
         </div>
         <div className="preauth-funnel-scroll px-6 pt-4 pb-6 flex flex-col">
-          <span className="preauth-eyebrow">{t('b2c.onb.eyebrow', 'Why CarCare')}</span>
+          <span className="preauth-eyebrow">{t('b2c.onb.eyebrow', 'Why Osta')}</span>
           <h2 className="preauth-headline">{t('b2c.onb.headline', 'Maintain your car with less guesswork')}</h2>
           <p className="preauth-sub">{t('b2c.onb.sub', 'Three ways we save you time before you even book.')}</p>
           <div className="preauth-feature-stack">

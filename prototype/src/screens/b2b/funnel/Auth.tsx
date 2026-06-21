@@ -76,7 +76,7 @@ export function B2bLogin() {
         </div>
         <div className="preauth-funnel-scroll px-7 pt-5 pb-6 flex flex-col">
           <h2 className="preauth-page-title">{t('b2c.login.title', 'Welcome back')}</h2>
-          <p className="preauth-page-lead">{t('b2b.login.lead', 'Sign in with the email you use for your shop on CarCare.')}</p>
+          <p className="preauth-page-lead">{t('b2b.login.lead', 'Sign in with the email you use for your shop on Osta.')}</p>
           <div className="preauth-form-fields">
             <div>
               <label className="label mb-2 block" htmlFor="b2b-login-email">
@@ -88,7 +88,7 @@ export function B2bLogin() {
               <label className="label mb-2 block" htmlFor="b2b-login-password">
                 {t('common.password', 'Password')}
               </label>
-              <ProtoPasswordField id="b2b-login-password" defaultValue={t('demo.input.password_sample', 'CarCare#2024')} autoComplete="current-password" />
+              <ProtoPasswordField id="b2b-login-password" defaultValue={t('demo.input.password_sample', 'Osta#2024')} autoComplete="current-password" />
             </div>
             <button type="button" className="text-right text-xs font-semibold text-teal-700 dark:text-teal-400 tap w-full" style={{ marginTop: -6 }}>
               {t('b2c.login.forgot', 'Forgot password?')}
@@ -127,7 +127,7 @@ export function B2bSignup() {
             <div className="w-10 h-10 rounded-xl bg-white/95 border border-white/35 flex items-center justify-center overflow-hidden p-1">
               <BrandLogo className="w-full h-full object-contain" alt="" />
             </div>
-            <span className="font-bold text-white text-[15px]">{t('b2b.signup.brand', 'CarCare for Business')}</span>
+            <span className="font-bold text-white text-[15px]">{t('b2b.signup.brand', 'Osta for Business')}</span>
           </div>
           <h2 className="t-h1 text-white">
             {t('b2b.signup.hero_title', 'Fill your schedule. Grow your shop.')}
@@ -174,13 +174,13 @@ export function B2bSignup() {
               <label className="label mb-1.5 block" htmlFor="b2b-signup-password">
                 {t('common.password', 'Password')}
               </label>
-              <ProtoPasswordField id="b2b-signup-password" defaultValue={t('demo.input.password_sample', 'CarCare#2024')} autoComplete="new-password" />
+              <ProtoPasswordField id="b2b-signup-password" defaultValue={t('demo.input.password_sample', 'Osta#2024')} autoComplete="new-password" />
             </div>
             <div>
               <label className="label mb-1.5 block" htmlFor="b2b-signup-password2">
                 {t('b2c.register.confirm', 'Confirm password')}
               </label>
-              <ProtoPasswordField id="b2b-signup-password2" defaultValue={t('demo.input.password_sample', 'CarCare#2024')} autoComplete="new-password" />
+              <ProtoPasswordField id="b2b-signup-password2" defaultValue={t('demo.input.password_sample', 'Osta#2024')} autoComplete="new-password" />
             </div>
           </div>
           <button type="button" className="btn-primary btn-primary-lg w-full mt-5 tap" onClick={() => show('b2b-onboard-1')}>
